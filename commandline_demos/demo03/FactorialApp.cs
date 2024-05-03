@@ -10,7 +10,7 @@ class Program
 	}
 }
 
-class Math
+public class Math
 {
 
 	public static int Factorial(int x)
