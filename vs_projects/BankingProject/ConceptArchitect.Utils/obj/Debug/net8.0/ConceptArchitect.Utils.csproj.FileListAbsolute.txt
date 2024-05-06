@@ -1,0 +1,12 @@
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\bin\Debug\net8.0\ConceptArchitect.Utils.deps.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\bin\Debug\net8.0\ConceptArchitect.Utils.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\bin\Debug\net8.0\ConceptArchitect.Utils.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.GeneratedMSBuildEditorConfig.editorconfig
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.AssemblyInfoInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.AssemblyInfo.cs
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.csproj.CoreCompileInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.sourcelink.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\refint\ConceptArchitect.Utils.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ConceptArchitect.Utils.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\ConceptArchitect.Utils\obj\Debug\net8.0\ref\ConceptArchitect.Utils.dll

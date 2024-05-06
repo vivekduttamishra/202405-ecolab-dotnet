@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "qikld+7ybmqFzEIVabQymriIO9eTrNShuTx+6Uisvh5xqYRwOx4YqEOaY2kLhps3JSlU55iXeYSVSpwedwd9Iw==",
+  "success": true,
+  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\FurnitureAppManagement\\FurnitureApp\\FurnitureApp.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: An error occurred while sending the request."
+    }
+  ]
+}

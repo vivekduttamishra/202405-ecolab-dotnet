@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FurnitureApp/1.0.0": {
+        "dependencies": {
+          "ConceptArchitect.Data": "1.0.0",
+          "ConceptArchitect.Furnitures": "1.0.0"
+        },
+        "runtime": {
+          "FurnitureApp.dll": {}
+        }
+      },
+      "ConceptArchitect.Data/1.0.0": {
+        "runtime": {
+          "ConceptArchitect.Data.dll": {}
+        }
+      },
+      "ConceptArchitect.Furnitures/1.0.0": {
+        "runtime": {
+          "ConceptArchitect.Furnitures.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FurnitureApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConceptArchitect.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConceptArchitect.Furnitures/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

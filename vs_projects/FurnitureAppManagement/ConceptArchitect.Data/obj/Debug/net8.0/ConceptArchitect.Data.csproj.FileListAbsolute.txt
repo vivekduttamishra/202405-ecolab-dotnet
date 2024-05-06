@@ -1,0 +1,12 @@
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\bin\Debug\net8.0\ConceptArchitect.Data.deps.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\bin\Debug\net8.0\ConceptArchitect.Data.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\bin\Debug\net8.0\ConceptArchitect.Data.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.AssemblyInfoInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.AssemblyInfo.cs
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.csproj.CoreCompileInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.sourcelink.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\refint\ConceptArchitect.Data.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ConceptArchitect.Data.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\FurnitureAppManagement\ConceptArchitect.Data\obj\Debug\net8.0\ref\ConceptArchitect.Data.dll

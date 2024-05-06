@@ -4,4 +4,6 @@ csc -target:library Furnitures.cs
 
 csc -target:library Data.cs
 
-csc -out:fs.exe Program.cs -r:Furnitures.dll,Data.dll
+csc -target:library ThirdPartyLibrary.cs
+
+csc -out:fs.exe Program.cs -r:Furnitures.dll,Data.dll,ThirdPartyLibrary.dll
