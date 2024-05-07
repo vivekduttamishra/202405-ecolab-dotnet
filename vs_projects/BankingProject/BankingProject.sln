@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App01", "App01\App01.csproj", "{461E0309-2680-4C23-ADD4-EC5B1E8DD657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App01", "App01\App01.csproj", "{461E0309-2680-4C23-ADD4-EC5B1E8DD657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App02", "App02\App02.csproj", "{151FFDC5-7BBA-4A51-AA1F-473ADA1A9666}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App02", "App02\App02.csproj", "{151FFDC5-7BBA-4A51-AA1F-473ADA1A9666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.Utils", "ConceptArchitect.Utils\ConceptArchitect.Utils.csproj", "{DB64FC39-C75C-4476-9A96-A7C6477BFFBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.Utils", "ConceptArchitect.Utils\ConceptArchitect.Utils.csproj", "{DB64FC39-C75C-4476-9A96-A7C6477BFFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App03", "App03\App03.csproj", "{AB847A06-9E58-4B16-8FB6-59DD0F914D48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{DB64FC39-C75C-4476-9A96-A7C6477BFFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB64FC39-C75C-4476-9A96-A7C6477BFFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB64FC39-C75C-4476-9A96-A7C6477BFFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB847A06-9E58-4B16-8FB6-59DD0F914D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB847A06-9E58-4B16-8FB6-59DD0F914D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB847A06-9E58-4B16-8FB6-59DD0F914D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB847A06-9E58-4B16-8FB6-59DD0F914D48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

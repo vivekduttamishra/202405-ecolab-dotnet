@@ -7,15 +7,62 @@ using System.Threading.Tasks;
 
 namespace ConceptArchitect.Banking
 {
-    public enum TransactionStatus { SUCCESS, INVALID_CREDENTIALS, INVALID_AMOUNT, INSUFFICIENT_BALANCE}
-
+    public enum TransactionStatus 
+    { 
+        SUCCESS, 
+        INVALID_CREDENTIALS, 
+        INVALID_AMOUNT, 
+        INSUFFICIENT_BALANCE
+    }
+    
     public class BankAccount
     {
-        int accountNumber;
-        string name;
+      
+        
         String password;
-        double balance;
+        
+       
+
+        string name;
+        public string GetName()
+        {
+            return name;
+        }
+
+        public void SetName(string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+                name = value;
+        }
+
         double interestRate;
+        public double GetInterestRate() { return interestRate; }
+        public void SetInterestRate(double value)
+        {
+            var delta = interestRate / 10;
+            var diff = Math.Abs(interestRate - value);
+            if (diff <= delta)
+                interestRate = value;
+        }
+
+        int accountNumber;
+        public int GetAccountNumber()
+        {
+            return accountNumber;
+        }
+
+        //not allowed. to change from outside
+        private void SetAccountNumber(int value) { accountNumber = value; }
+
+        double balance;
+        public double GetBalance()
+        {
+            return balance;
+        }
+
+        //no setter provided.
+
+
 
         public BankAccount(int accountNumber, string name, string password, double balance, double interestRate)
         {
@@ -70,7 +117,11 @@ namespace ConceptArchitect.Banking
                 return TransactionStatus.SUCCESS;
             }
         }
-
+        
+        public void CreditInterest()
+        {
+            balance += balance * interestRate / 1200;
+        }
         public void Show()
         {
             Console.WriteLine($"Account Number: {accountNumber}");
@@ -82,5 +133,9 @@ namespace ConceptArchitect.Banking
             Console.WriteLine( "-----------------------------------------");
             Console.WriteLine();
         }
+    
+        //What Values Should be accessable outside
+
+        
     }
 }

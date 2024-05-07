@@ -45,7 +45,7 @@ namespace App02
         {
             while (true)
             {
-                int choice = kb.ReadInt("1. Deposit 2. Withdraw 3. Info 0. Exit?");
+                int choice = kb.ReadInt("1. Deposit 2. Withdraw 3. Show 4. Check Balance 0. Exit?");
                 switch (choice)
                 {
                     case 0:
@@ -63,10 +63,28 @@ namespace App02
                         ShowInfoScreen();
                         break;
 
+                    case 4:
+                        ShowBalance();
+                        break;
+
                     default:
                         ShowError("Invalid Choice");
                         break;
                 }
+            }
+        }
+
+        private void ShowBalance()
+        {
+            var account = GetAccount(accountNumber);
+            if (account == null)
+            {
+                ShowError("Invalid Account Number");
+                return; //back to login
+            }
+            else
+            {
+                ShowInfo($"Your balance: Rs {account.GetBalance()}");
             }
         }
 

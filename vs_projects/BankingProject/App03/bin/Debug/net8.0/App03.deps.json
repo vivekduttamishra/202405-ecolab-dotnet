@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "App03/1.0.0": {
+        "dependencies": {
+          "ConceptArchitect.Utils": "1.0.0"
+        },
+        "runtime": {
+          "App03.dll": {}
+        }
+      },
+      "ConceptArchitect.Utils/1.0.0": {
+        "runtime": {
+          "ConceptArchitect.Utils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "App03/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConceptArchitect.Utils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
