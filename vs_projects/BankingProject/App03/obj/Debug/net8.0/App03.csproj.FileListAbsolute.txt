@@ -1,8 +1,3 @@
-D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.GeneratedMSBuildEditorConfig.editorconfig
-D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.AssemblyInfoInputs.cache
-D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.AssemblyInfo.cs
-D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.csproj.CoreCompileInputs.cache
-D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.sourcelink.json
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Debug\net8.0\App03.exe
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Debug\net8.0\App03.deps.json
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Debug\net8.0\App03.runtimeconfig.json
@@ -11,6 +6,11 @@ D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Deb
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Debug\net8.0\ConceptArchitect.Utils.dll
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\bin\Debug\net8.0\ConceptArchitect.Utils.pdb
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.csproj.AssemblyReference.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.GeneratedMSBuildEditorConfig.editorconfig
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.AssemblyInfoInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.AssemblyInfo.cs
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.csproj.CoreCompileInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.sourcelink.json
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.csproj.CopyComplete
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\App03.dll
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App03\obj\Debug\net8.0\refint\App03.dll
