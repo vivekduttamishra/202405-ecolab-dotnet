@@ -111,17 +111,15 @@ namespace ConceptArchitect.Banking
 
         public TransactionStatus Withdraw(double amount, string password)
         {
-            if (amount <= 0)
-                return TransactionStatus.INVALID_AMOUNT;
-            else if (amount > balance)
+            if (amount > balance)
                 return TransactionStatus.INSUFFICIENT_BALANCE;
-            else if (this.password != password)
+            
+            if (this.password != password)
                 return TransactionStatus.INVALID_CREDENTIALS;
-            else
-            {
-                balance -= amount;
-                return TransactionStatus.SUCCESS;
-            }
+            
+            balance -= amount;
+            return TransactionStatus.SUCCESS;
+            
         }
         
         public void CreditInterest()

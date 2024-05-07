@@ -13,3 +13,7 @@ D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Deb
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Debug\net8.0\App01.pdb
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Debug\net8.0\App01.genruntimeconfig.cache
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Debug\net8.0\ref\App01.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\bin\Debug\net8.0\ConceptArchitect.Utils.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\bin\Debug\net8.0\ConceptArchitect.Utils.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Debug\net8.0\App01.csproj.AssemblyReference.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\BankingProject\App01\obj\Debug\net8.0\App01.csproj.CopyComplete
