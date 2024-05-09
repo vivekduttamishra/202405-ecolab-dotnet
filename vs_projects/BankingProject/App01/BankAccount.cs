@@ -71,5 +71,16 @@ namespace ConceptArchitect.Banking
             Console.WriteLine( "-----------------------------------------");
             Console.WriteLine();
         }
+
+        public void Authenticate(string password)
+        {
+            if (this.password == password)
+                Console.WriteLine( "Authenticated");
+            else
+                Console.WriteLine("Authentication Failed");
+        }
+
     }
+
+    
 }
