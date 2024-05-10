@@ -17,7 +17,7 @@ namespace ConceptArchitect.Banking.Tests
         public void Arrange()
         {
             BankAccount.InterestRate = 12;
-            a1 = new BankAccount("User1", password, amount);
+            a1 = new BankAccount(1,"User1", password, amount);
 
         }
 
@@ -35,9 +35,10 @@ namespace ConceptArchitect.Banking.Tests
 
 
         [Test]
+        [Ignore("Test is no longer relevant")]
         public void EachNewAccountShouldHaveUniqueIncrementingAccountNumber()
         {
-            var a2 = new BankAccount("User2", password, amount);
+            var a2 = new BankAccount(2,"User2", password, amount);
             Assert.AreEqual(a1.AccountNumber+1, a2.AccountNumber);
         }
 
@@ -45,7 +46,7 @@ namespace ConceptArchitect.Banking.Tests
         //[Ignore("Not yet implemented")]
         public void InterestRateAppliesSameToEachAccount()
         {
-            var a2 = new BankAccount("User2", password, amount);
+            var a2 = new BankAccount(2,"User2", password, amount);
             var expectedBalance = amount + amount * BankAccount.InterestRate / 1200;
 
             a1.CreditInterest();
