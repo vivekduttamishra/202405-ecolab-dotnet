@@ -111,8 +111,9 @@ namespace ConceptArchitect.Banking
 
         public TransactionStatus Withdraw(double amount, string password)
         {
-            //if (amount <= 0)
-            //    return TransactionStatus.INVALID_AMOUNT;
+            
+            if (amount <= 0)
+                return TransactionStatus.INVALID_AMOUNT;
 
             if (amount > balance)
                 return TransactionStatus.INSUFFICIENT_BALANCE;
@@ -120,7 +121,7 @@ namespace ConceptArchitect.Banking
             if (!Authenticate(password))
                 return TransactionStatus.INVALID_CREDENTIALS;
             
-           
+            balance-= amount;
             return TransactionStatus.SUCCESS;
             
         }
