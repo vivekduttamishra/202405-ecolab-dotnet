@@ -18,7 +18,7 @@ namespace App02
 
         public ATM()
         {
-            BankAccount.InterestRate = 12;
+            //BankAccount.InterestRate = 12;
             accounts = new BankAccount[]
             {
                 null,

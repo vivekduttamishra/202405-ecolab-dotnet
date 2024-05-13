@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App05
+namespace App05.Specs
 {
     public class BankSpecs
     {
@@ -22,21 +22,21 @@ namespace App05
         {
             bank = new Bank();
             accountNumber = bank.OpenAccount(name, password, amount);
-            lastAccountNumber=accountNumber;
+            lastAccountNumber = accountNumber;
         }
 
         void AssertBalance(int accountNumber, double balance)
         {
             var actualBalance = bank.GetBalance(accountNumber, password);
             Assert.That(actualBalance, Is.EqualTo(balance));
-            bank.
+
         }
 
         void AssertBalanceUnchanged(int accountNumber)
         {
             AssertBalance(accountNumber, amount);
 
-            
+
         }
 
 
@@ -52,9 +52,9 @@ namespace App05
         //[Ignore("Not Yet Implemented")]
         public void BankHasAnInterestRate()
         {
-            bank.InterestRate=interestRate;
+            bank.InterestRate = interestRate;
 
-            Assert.That(bank.InterestRate,Is.EqualTo(interestRate));
+            Assert.That(bank.InterestRate, Is.EqualTo(interestRate));
         }
 
         [Test]
@@ -67,16 +67,37 @@ namespace App05
         }
 
         [Test]
+        [Ignore("Not Yet Implemented")]
+        public void OpenAccountCanOpenSavingsAccount()
+        {
+            
+        }
+
+        [Test]
+        [Ignore("Not Yet Implemented")]
+        public void OpenAccountCanOpenCurrentAccount()
+        {
+
+        }
+
+        [Test]
+        [Ignore("Not Yet Implemented")]
+        public void OpenAccountCanOpenOverdrarftAccount()
+        {
+
+        }
+
+        [Test]
         //[Ignore("Not Yet Implemented")]
         public void OpenAccountReturnsAccountNumberInIncreasingOrderFrom1()
         {
             int expected = lastAccountNumber;
-            for(var i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 var a = bank.OpenAccount(name, password, amount);
                 expected++;
-                Assert.That(a , Is.EqualTo(expected));
-                
+                Assert.That(a, Is.EqualTo(expected));
+
             }
         }
 
@@ -84,10 +105,10 @@ namespace App05
         //[Ignore("Not Yet Implemented")]
         public void GetBalanceFailsForInvalidAccountNumber()
         {
-            
+
 
             //Act
-            var result = bank.GetBalance(lastAccountNumber+1,password);
+            var result = bank.GetBalance(lastAccountNumber + 1, password);
 
             Assert.That(result, Is.EqualTo(-1));
         }
@@ -96,10 +117,10 @@ namespace App05
         //[Ignore("Not Yet Implemented")]
         public void GetBalanceFailsForInvalidCredentials()
         {
-            
+
             //Act
             var result = bank.GetBalance(accountNumber, "wrong-password");
-            
+
             //Assert
             Assert.That(result, Is.EqualTo(-2));
         }
@@ -108,11 +129,11 @@ namespace App05
         //[Ignore("Not Yet Implemented")]
         public void GetBalanceReturnsTheBalanceOfValidAuthenticatedAccount()
         {
-           
+
 
             //Act
             double result = bank.GetBalance(accountNumber, password);
-            
+
             //Assert
             Assert.That(result, Is.EqualTo(amount));
         }
@@ -275,7 +296,7 @@ namespace App05
 
         [Test]
         [Ignore("Not Yet Implemented")]
-        public void CloseAccountFailsForInsufficientFunds()
+        public void CloseAccountFailsForNegative()
         {
 
         }
@@ -291,6 +312,7 @@ namespace App05
         [Ignore("Not Yet Implemented")]
         public void CloseAccountClosesTheAccountOnSuccess()
         {
+            
 
         }
 

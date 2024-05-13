@@ -34,20 +34,20 @@ namespace ConceptArchitect.Banking
             }
         }
 
-        static double interestRate;
-        public static double InterestRate { 
+        //static double interestRate;
+        //public static double InterestRate { 
             
-            get { return interestRate; }
+        //    get { return interestRate; }
 
-            set
-            {
-                var delta = interestRate / 10;
-                var diff = Math.Abs(interestRate - value);
-                if (diff <= delta)
-                    interestRate = value;
-            }
+        //    set
+        //    {
+        //        var delta = interestRate / 10;
+        //        var diff = Math.Abs(interestRate - value);
+        //        if (diff <= delta)
+        //            interestRate = value;
+        //    }
 
-        }
+        //}
 
        
 
@@ -60,7 +60,7 @@ namespace ConceptArchitect.Banking
 
        
 
-        double balance;
+        protected double balance;
         public double Balance
         {
             get { return balance; }
@@ -109,7 +109,7 @@ namespace ConceptArchitect.Banking
         //    }
         //}
 
-        public TransactionStatus Withdraw(double amount, string password)
+        public virtual TransactionStatus Withdraw(double amount, string password)
         {
             
             if (amount <= 0)
@@ -126,7 +126,7 @@ namespace ConceptArchitect.Banking
             
         }
         
-        public void CreditInterest()
+        public virtual void CreditInterest(double interestRate)
         {
             balance += balance * interestRate / 1200;
         }
@@ -137,17 +137,16 @@ namespace ConceptArchitect.Banking
             //Shouldn't show the password for security reason
             //Console.WriteLine($"Password      : {password}");
             Console.WriteLine($"Balance       : {balance}");
-            Console.WriteLine($"Interest Rate : {interestRate}");
+           // Console.WriteLine($"Interest Rate : {interestRate}");
             Console.WriteLine( "-----------------------------------------");
             Console.WriteLine();
         }
 
-        public string Info()
+        public virtual string Info()
         {
-            return  $"Account Number: {accountNumber}" +
+            return  $"{GetType().Name}Account Number: {accountNumber}" +
                     $"\nName          : {name}" +            
-                    $"\nBalance       : {balance}" +
-                    $"\nInterest Rate : {interestRate}";
+                    $"\nBalance       : {balance}" ;
            
         }
 

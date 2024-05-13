@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConceptArchitect.Banking.Tests
+namespace App05.Specs
 {
-    public class BankAccountTests
+    public class BankAccountSpecs
     {
         string password = "p@ss";
         double amount = 10000;
@@ -16,8 +16,8 @@ namespace ConceptArchitect.Banking.Tests
         [SetUp]
         public void Arrange()
         {
-            BankAccount.InterestRate = 12;
-            a1 = new BankAccount(1,"User1", password, amount);
+            //BankAccount.InterestRate = 12;
+            a1 = new BankAccount(1, "User1", password, amount);
 
         }
 
@@ -38,34 +38,34 @@ namespace ConceptArchitect.Banking.Tests
         [Ignore("Test is no longer relevant")]
         public void EachNewAccountShouldHaveUniqueIncrementingAccountNumber()
         {
-            var a2 = new BankAccount(2,"User2", password, amount);
-            Assert.AreEqual(a1.AccountNumber+1, a2.AccountNumber);
+            var a2 = new BankAccount(2, "User2", password, amount);
+            Assert.AreEqual(a1.AccountNumber + 1, a2.AccountNumber);
         }
 
         [Test]
-        //[Ignore("Not yet implemented")]
+        [Ignore("Doesn't Apply Anymore and different Accounts may have different interest")]
         public void InterestRateAppliesSameToEachAccount()
         {
-            var a2 = new BankAccount(2,"User2", password, amount);
-            var expectedBalance = amount + amount * BankAccount.InterestRate / 1200;
+            //var a2 = new BankAccount(2,"User2", password, amount);
+            //var expectedBalance = amount + amount * BankAccount.InterestRate / 1200;
 
-            a1.CreditInterest();
-            a2.CreditInterest();
+            //a1.CreditInterest();
+            //a2.CreditInterest();
 
-            Assert.That(a1.Balance, Is.EqualTo(a2.Balance));
-            Assert.That(a1.Balance, Is.EqualTo(expectedBalance));
+            //Assert.That(a1.Balance, Is.EqualTo(a2.Balance));
+            //Assert.That(a1.Balance, Is.EqualTo(expectedBalance));
         }
 
         [Test]
         public void BankAccountInfoIncludesBalance()
         {
-          
-            Assert.GreaterOrEqual(a1.Info().IndexOf(amount.ToString()),0);
+
+            Assert.GreaterOrEqual(a1.Info().IndexOf(amount.ToString()), 0);
         }
 
         [Test]
         public void BankAccountInfoDoesntIncludesPassword()
-        {  
+        {
             Assert.False(a1.Info().Contains(password));
 
         }
@@ -115,7 +115,7 @@ namespace ConceptArchitect.Banking.Tests
             //Assert.AreEqual(TransactionStatus.SUCCESS, result);
             //Assert.That(a1.Balance, Is.EqualTo(1));
 
-            AssertTransactionSuccess(a1.Withdraw(amount - 1, password), 1);
+            AssertTransactionSuccess(a1.Withdraw(1, password), amount - 1);
         }
 
 
@@ -125,6 +125,8 @@ namespace ConceptArchitect.Banking.Tests
         //{
         //    Assert.AreEqual(3.147, Math.PI,0.001);
         //}
+
+
 
 
     }
