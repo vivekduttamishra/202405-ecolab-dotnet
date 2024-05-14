@@ -1,0 +1,15 @@
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\bin\Debug\net8.0\Demo02.exe
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\bin\Debug\net8.0\Demo02.deps.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\bin\Debug\net8.0\Demo02.runtimeconfig.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\bin\Debug\net8.0\Demo02.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\bin\Debug\net8.0\Demo02.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.GeneratedMSBuildEditorConfig.editorconfig
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.AssemblyInfoInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.AssemblyInfo.cs
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.csproj.CoreCompileInputs.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.sourcelink.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\refint\Demo02.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.pdb
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\Demo02.genruntimeconfig.cache
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\DelegatesDemos\Demo02\obj\Debug\net8.0\ref\Demo02.dll
