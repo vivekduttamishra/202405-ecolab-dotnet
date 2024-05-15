@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.Calculation", "ConceptArchitect.Calculation\ConceptArchitect.Calculation.csproj", "{3CE4BC67-DF89-4DA2-A884-9834321B84C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.Calculation", "ConceptArchitect.Calculation\ConceptArchitect.Calculation.csproj", "{3CE4BC67-DF89-4DA2-A884-9834321B84C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorApp01", "CalculatorApp01\CalculatorApp01.csproj", "{812A9CD2-2E8C-4818-92E4-B78314F47A46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorApp01", "CalculatorApp01\CalculatorApp01.csproj", "{812A9CD2-2E8C-4818-92E4-B78314F47A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.CalculationsV2", "ConceptArchitect.CalculationsV2\ConceptArchitect.CalculationsV2.csproj", "{C0F3BEED-35CB-49E9-B724-5057DDF49C1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.CalculationsV2", "ConceptArchitect.CalculationsV2\ConceptArchitect.CalculationsV2.csproj", "{C0F3BEED-35CB-49E9-B724-5057DDF49C1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorApp02", "CalculatorApp02\CalculatorApp02.csproj", "{2F0FBF6F-4E90-43D3-85D2-1B943EA65651}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorApp02", "CalculatorApp02\CalculatorApp02.csproj", "{2F0FBF6F-4E90-43D3-85D2-1B943EA65651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.CalculationsV3", "ConceptArchitect.CalculationsV3\ConceptArchitect.CalculationsV3.csproj", "{4AAF32D4-E120-46C6-871E-CC2A45E3BAC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorApp03", "CalculatorApp03\CalculatorApp03.csproj", "{C7D906FA-C806-46D5-9CF7-C79C71BB1951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{2F0FBF6F-4E90-43D3-85D2-1B943EA65651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F0FBF6F-4E90-43D3-85D2-1B943EA65651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F0FBF6F-4E90-43D3-85D2-1B943EA65651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AAF32D4-E120-46C6-871E-CC2A45E3BAC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AAF32D4-E120-46C6-871E-CC2A45E3BAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AAF32D4-E120-46C6-871E-CC2A45E3BAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AAF32D4-E120-46C6-871E-CC2A45E3BAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7D906FA-C806-46D5-9CF7-C79C71BB1951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7D906FA-C806-46D5-9CF7-C79C71BB1951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7D906FA-C806-46D5-9CF7-C79C71BB1951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7D906FA-C806-46D5-9CF7-C79C71BB1951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
