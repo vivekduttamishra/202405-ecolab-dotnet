@@ -12,10 +12,27 @@ namespace CalculatorApp02
             UseCalculator(calc);
 
 
-            var calc2 = new AdvancedCalculatorV1();
-            calc2.AddOperator(new Multiply()); //can add additional operator without changing Calculator source code
+            //var calc2 = new AdvancedCalculatorV1();
+
+            var calc2 = new AdvancedCalculatorV2();
+
+            //calculator has a default display. we don't need to supply
+            //calc2.Display = new MonochromeDisplay();
+
+
             UseCalculator(calc2);
 
+
+            //we can inject (supply) new dependency
+            //calc2.Display = new ColouredDisplay();
+
+            calc2.Display = new SmartDisplay() 
+            { 
+                StandardColor = ConsoleColor.DarkCyan,
+                 
+            };
+
+            calc2.AddOperator(new Multiply()); //can add additional operator without changing Calculator source code
             calc2.AddOperator(new Mod());
 
             UseCalculator(calc2);
