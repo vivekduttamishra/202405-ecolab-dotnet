@@ -32,9 +32,14 @@ namespace CalculatorApp02
                  
             };
 
+            calc2.Formatter = new MethodStyleResultFormatter();
+
             calc2.AddOperator(new Multiply()); //can add additional operator without changing Calculator source code
             calc2.AddOperator(new Mod());
 
+            UseCalculator(calc2);
+
+            calc2.Formatter=new RawResultFormatter();
             UseCalculator(calc2);
 
         }

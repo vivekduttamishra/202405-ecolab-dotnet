@@ -10,11 +10,12 @@ namespace ConceptArchitect.CalculationsV2
     public class AdvancedCalculatorV2 : ICalculator
     {
         public Display Display { get; set; }
+        public IResultFormatter Formatter { get; set; }  
 
         public AdvancedCalculatorV2()
         {
             Display =new MonochromeDisplay(); //default dependency
-            
+            Formatter = new InfixResultFormatter();   
             AddOperator(new Plus());
             AddOperator(new Minus());
         }
@@ -32,8 +33,8 @@ namespace ConceptArchitect.CalculationsV2
             var result = opr.Calculate(x, y);
 
             //Step #2 Format the result
-            var output = $"{x} {opr.GetType().Name} {y} = {result}";
-
+            //var output = $"{x} {opr.GetType().Name} {y} = {result}";
+            var output = Formatter.Format(x,oprName,y,result)  ;
 
             //Step #3 Presen the result
             //Show(output);
