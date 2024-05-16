@@ -17,7 +17,7 @@ namespace App05.Specs
         public void Arrange()
         {
             //BankAccount.InterestRate = 12;
-            a1 = new BankAccount(1, "User1", password, amount);
+            a1 = new SavingsAccount(1, "User1", password, amount);
 
         }
 
@@ -38,7 +38,7 @@ namespace App05.Specs
         [Ignore("Test is no longer relevant")]
         public void EachNewAccountShouldHaveUniqueIncrementingAccountNumber()
         {
-            var a2 = new BankAccount(2, "User2", password, amount);
+            var a2 = new SavingsAccount(2, "User2", password, amount);
             Assert.AreEqual(a1.AccountNumber + 1, a2.AccountNumber);
         }
 

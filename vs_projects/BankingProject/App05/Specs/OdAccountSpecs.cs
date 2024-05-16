@@ -104,13 +104,29 @@ namespace App05.Specs
         [Test]
         public void OdLimitIncreasesOnDepositIfItCrossHistoricMaxBalance()
         {
+            var orginalOdLimit = account.OdLimit;
+            account.Deposit(10000); //new historic max balance
+            var newOdLimit = account.OdLimit;
 
+            Assert.That(newOdLimit, Is.GreaterThan(orginalOdLimit));
         }
 
 
         [Test]
         public void OdLimitDoesntChangeOnDepositIfItDoesntCrossHistoricMaxBalance()
         {
+            //Arrange: Make Historic Max balance
+            account.Deposit(10000);
+            var odLimitAtHistoricMaxBalance= account.OdLimit;
+            //reduce the balance
+            account.Withdraw(10000, password);
+
+            //ACT:now deposit an amount that doesn't cross histroic max balance
+            account.Deposit(1000);
+
+            //Assert 
+            Assert.That(account.OdLimit, Is.EqualTo(odLimitAtHistoricMaxBalance));
+
 
         }
 
@@ -118,12 +134,24 @@ namespace App05.Specs
         [Test]
         public void OdLimitDoesntChangeOnWithdrawal()
         {
+            var originalOdLimit = account.OdLimit;
+            //act
+            account.Withdraw(amount/2, password);
 
+            Assert.That(account.OdLimit, Is.EqualTo(originalOdLimit));   
         }
 
         [Test]
         public void OdLimitIncreasesOnCreditInterestIfItCrossHistoricMaxBalance()
         {
+           
+
+            //Act
+            account.CreditInterest(12);
+
+            var expectedOdLimit = account.Balance / 10;
+
+            Assert.That(account.OdLimit, Is.EqualTo(expectedOdLimit));
 
         }
 
@@ -131,7 +159,12 @@ namespace App05.Specs
         [Test]
         public void OdLimitDoesntCreditInterestIfItDoesntCrossHistoricMaxBalance()
         {
+            var odLimitAtHistroicMaxBalance=account.OdLimit;
 
+            account.Withdraw(amount / 2, password); //withdrew 50%
+            account.CreditInterest(12); //credited 1%
+
+            Assert.That(account.OdLimit, Is.EqualTo(odLimitAtHistroicMaxBalance));
         }
 
 

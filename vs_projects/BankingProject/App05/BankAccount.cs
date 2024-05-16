@@ -16,7 +16,7 @@ namespace ConceptArchitect.Banking
         INVALID_ACCOUNT
     }
     
-    public class BankAccount
+    public abstract class BankAccount
     {
       
         
@@ -81,7 +81,7 @@ namespace ConceptArchitect.Banking
 
         }
 
-        public bool Deposit(double amount)
+        public virtual bool Deposit(double amount)
         {
 
             if (amount > 0)
@@ -110,13 +110,15 @@ namespace ConceptArchitect.Banking
         //    }
         //}
 
+        public abstract double EffectiveBalance { get; }
+
         public virtual TransactionStatus Withdraw(double amount, string password)
         {
             
             if (amount <= 0)
                 return TransactionStatus.INVALID_AMOUNT;
 
-            if (amount > balance)
+            if (amount > EffectiveBalance)
                 return TransactionStatus.INSUFFICIENT_BALANCE;
             
             if (!Authenticate(password))
