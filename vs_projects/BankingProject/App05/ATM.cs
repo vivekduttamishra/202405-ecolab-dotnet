@@ -11,20 +11,14 @@ namespace App02
 {
     public class ATM
     {
-        BankAccount []accounts ;
+        Bank bank;
         Input kb = new Input();
         int accountNumber;
         string password;
 
-        public ATM()
+        public ATM(Bank bank)
         {
-            //BankAccount.InterestRate = 12;
-            accounts = new BankAccount[]
-            {
-                null,
-                new BankAccount(1,"Vivek","p@ss",10000),
-                new BankAccount(2,"Sanjay","p@ss",10000),
-            };
+            this.bank = bank;
         }
 
         public void Start()
@@ -46,7 +40,7 @@ namespace App02
         {
             while (true)
             {
-                int choice = kb.ReadInt("1. Deposit 2. Withdraw 3. Show 4. Check Balance 0. Exit?");
+                int choice = kb.ReadInt("1. Deposit 2. Withdraw 3. Show 4. Check Balance 5. Transfer 0. Exit?");
                 switch (choice)
                 {
                     case 0:
@@ -68,6 +62,10 @@ namespace App02
                         ShowBalance();
                         break;
 
+                    case 5:
+                        TransferFundsScreen();
+                        break;
+
                     default:
                         ShowError("Invalid Choice");
                         break;
@@ -75,67 +73,74 @@ namespace App02
             }
         }
 
-        private void ShowBalance()
-        {
-            var account = GetAccount(accountNumber);
-            if (account == null)
-            {
-                ShowError("Invalid Account Number");
-                return; //back to login
-            }
-            else
-            {
-                ShowInfo($"Your balance: Rs {account.Balance}");
-            }
-        }
-
-        private void ShowInfoScreen()
-        {
-            var account = GetAccount(accountNumber);
-            if (account == null)
-            {
-                ShowError("Invalid Account Number");
-                return; //back to login
-            }
-            else {
-                account.Show();
-            }
-        }
-
-        private void DepositScreen()
+        private void TransferFundsScreen()
         {
             var amount = kb.ReadInt("Amount: ");
-            var account = GetAccount(accountNumber);
-            if (account == null)
+            var password = kb.ReadString("Password: ");
+            var toAccount = kb.ReadInt("To Account: ");
+
+            TransactionStatus result = bank.Transfer(accountNumber, amount, password, toAccount);
+            if (result == TransactionStatus.SUCCESS)
             {
-                ShowError("Invalid Account Number");
-                return; //back to login
+                ShowInfo($"Rs {amount} transferred to {toAccount}");
             }
-            else if (account.Deposit(amount))
-            {
-                ShowInfo($"Amount Deposited {amount}");
-            }
+            else
+                ShowError(result.ToString().Replace("_", " "));
         }
 
         private void WithdrawScreen()
         {
             var amount = kb.ReadInt("Amount: ");
-            var password=kb.ReadString("Password: ");
+            var password = kb.ReadString("Password: ");
+
+           
+            var result = bank.Withdraw(accountNumber,amount, password);
+            if (result == TransactionStatus.SUCCESS)
+                DispenceCash(amount);
+            else
+                ShowError(result.ToString().Replace("_", " "));
             
-            var account = GetAccount(accountNumber);
-            if (account == null)
-            {
+        }
+
+        private void ShowBalance()
+        {
+            
+            var password= kb.ReadString("Password? ");
+            var balance= bank.GetBalance(accountNumber, password);
+            if (balance == -1)
                 ShowError("Invalid Account Number");
-                return; //back to login
+            else if (balance == -2)
+                ShowError("Invalid Credentials");
+            else
+                ShowInfo($"Your balance: {balance}");
+        }
+
+        private void ShowInfoScreen()
+        {
+            var password = kb.ReadString("Password? ");
+            var info = bank.GetAccountInfo(accountNumber, password);
+            if (info == null)
+                ShowError("Invalid Account Number/Password");
+            else
+                ShowInfo(info);
+        }
+
+        private void DepositScreen()
+        {
+            var amount = kb.ReadInt("Amount: ");
+           
+           
+           if (bank.Deposit(accountNumber,amount))
+            {
+                ShowInfo($"Amount Deposited {amount}");
             }
-            else             {
-                var result = account.Withdraw(amount, password);
-                if (result == TransactionStatus.SUCCESS)
-                    DispenceCash(amount);
-                else
-                    ShowError(result.ToString().Replace("_"," "));
+           else
+            {
+                ShowError("Invalid AccountNumber/Amount");
             }
         }
+
+      
 
         private void DispenceCash(int amount)
         {
@@ -147,13 +152,7 @@ namespace App02
             Console.WriteLine( message);
         }
 
-        private BankAccount GetAccount(int accountNumber)
-        {
-            if (accountNumber < 0 || accountNumber > accounts.Length)
-                return null;
-            else 
-                return accounts[accountNumber];
-        }
+        
 
         private void ShowError(string message)
         {

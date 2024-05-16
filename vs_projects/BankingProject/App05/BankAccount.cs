@@ -12,7 +12,8 @@ namespace ConceptArchitect.Banking
         SUCCESS, 
         INVALID_CREDENTIALS, 
         INVALID_AMOUNT, 
-        INSUFFICIENT_BALANCE
+        INSUFFICIENT_BALANCE,
+        INVALID_ACCOUNT
     }
     
     public class BankAccount
@@ -55,7 +56,7 @@ namespace ConceptArchitect.Banking
         public int AccountNumber
         {
             get { return accountNumber; }
-            private set { accountNumber = value; }
+            internal set { accountNumber = value; }
         }
 
        

@@ -21,7 +21,7 @@ namespace App05.Specs
         public void Init()
         {
             bank = new Bank();
-            accountNumber = bank.OpenAccount(name, password, amount);
+            accountNumber = bank.OpenAccount("savings",name, password, amount);
             lastAccountNumber = accountNumber;
         }
 
@@ -61,7 +61,7 @@ namespace App05.Specs
         //[Ignore("Not Yet Implemented")]
         public void OpenAccountShouldTakeNameAmountPasswordAndReturnsNewAccountNumber()
         {
-            var result = bank.OpenAccount(name, password, amount);
+            var result = bank.OpenAccount("savings", name, password, amount);
 
             Assert.That(result, Is.TypeOf<int>());
         }
@@ -94,7 +94,7 @@ namespace App05.Specs
             int expected = lastAccountNumber;
             for (var i = 0; i < 10; i++)
             {
-                var a = bank.OpenAccount(name, password, amount);
+                var a = bank.OpenAccount("savings", name, password, amount);
                 expected++;
                 Assert.That(a, Is.EqualTo(expected));
 

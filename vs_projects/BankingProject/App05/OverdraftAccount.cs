@@ -1,6 +1,6 @@
 ﻿using ConceptArchitect.Banking;
 
-namespace App05
+namespace ConceptArchitect.Banking
 {
     public class OverdraftAccount : BankAccount
     {
