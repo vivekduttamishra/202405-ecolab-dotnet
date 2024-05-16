@@ -13,11 +13,10 @@ namespace ConceptArchitect.Banking
 
         public override double EffectiveBalance => Balance + OdLimit;
 
-        public override bool Deposit(double amount)
+        public override void Deposit(double amount)
         {
-            var result = base.Deposit(amount);
+            base.Deposit(amount);
             AdjustOdLimit();
-            return result;
         }
 
         public override void CreditInterest(double interestRate)
@@ -32,20 +31,14 @@ namespace ConceptArchitect.Banking
                 OdLimit = Balance / 10;
         }
 
-        public override TransactionStatus Withdraw(double amount, string password)
+        public override void Withdraw(double amount, string password)
         {
-            var result = base.Withdraw(amount, password);
-            if (result ==TransactionStatus.SUCCESS)
+            base.Withdraw(amount, password);
+            if( Balance<0)
             {
-                if( Balance<0)
-                {
-                    var odFee = Balance / 100;
-                    balance += odFee;
-                }
-
+                var odFee = Balance / 100;
+                balance += odFee;
             }
-
-            return result;
         }
     }
 }

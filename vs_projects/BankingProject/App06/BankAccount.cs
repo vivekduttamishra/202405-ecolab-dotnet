@@ -81,51 +81,34 @@ namespace ConceptArchitect.Banking
 
         }
 
-        public virtual bool Deposit(double amount)
+        private void ValidateAmount(double amount)
         {
-
-            if (amount > 0)
-            {
-                balance += amount;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (amount <= 0)
+                throw new InvalidDenominationException(accountNumber, "Amount must be positive");
         }
 
-        //public string Withdraw(double amount, string password)
-        //{
-        //    if (amount <= 0)
-        //        return "Error: Invalid Amount";
-        //    else if (amount > balance)
-        //        return "Error: Insufficient Balance";
-        //    else if (this.password != password)
-        //        return "Error: Invalid Credentials";
-        //    else
-        //    {
-        //        balance -= amount;
-        //        return "Please collect your cash!";
-        //    }
-        //}
+        public virtual void  Deposit(double amount)
+        {
+            ValidateAmount(amount);
+            
+            balance += amount;
+        }
+
+      
 
         public abstract double EffectiveBalance { get; }
 
-        public virtual TransactionStatus Withdraw(double amount, string password)
+        public virtual void Withdraw(double amount, string password)
         {
+
+            Authenticate(password);
             
-            if (amount <= 0)
-                return TransactionStatus.INVALID_AMOUNT;
+            ValidateAmount(amount);
 
             if (amount > EffectiveBalance)
-                return TransactionStatus.INSUFFICIENT_BALANCE;
-            
-            if (!Authenticate(password))
-                return TransactionStatus.INVALID_CREDENTIALS;
+                throw new InsufficientBalanceException(accountNumber, amount-EffectiveBalance,"Insufficient Funds.");
             
             balance-= amount;
-            return TransactionStatus.SUCCESS;
             
         }
         
@@ -159,25 +142,19 @@ namespace ConceptArchitect.Banking
         //no standard get/set for password.
 
         //alternative for get
-        public bool Authenticate(string password)
+        public void Authenticate(string password)
         {
             if (this.password != password)
                 //throw new Exception("Invalid Credentials"); //return false;
-                throw new InvalidCredentialsException(accountNumber, "Invalid Credentials");
-            else
-                return true;
+                throw new InvalidCredentialsException(accountNumber, "Invalid Credentials");           
         }
 
         //alternative of set
-        public bool ChangePassword(string oldPassword,  string newPassword)
+        public void ChangePassword(string oldPassword,  string newPassword)
         {
-            if (Authenticate(oldPassword))
-            {
-                password = newPassword;
-                return true;
-            }
-            else { return false; }
-
+            Authenticate(oldPassword);
+            password = newPassword;
+            
         }
 
     }

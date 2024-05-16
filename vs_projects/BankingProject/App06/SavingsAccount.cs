@@ -14,18 +14,7 @@ namespace ConceptArchitect.Banking
             get { return Balance - MinBalance; }
         }
 
-        //public override TransactionStatus Withdraw(double amount, string password)
-        //{
-        //    //New condition
-        //    if (amount > Balance-MinBalance)
-        //        return TransactionStatus.INSUFFICIENT_BALANCE;
-
-        //    //Reuse remaining old logic
-        //    return base.Withdraw(amount, password);
-        //}
-
-        
-
+       
         public int MinBalance { get; } = 5000;
 
         

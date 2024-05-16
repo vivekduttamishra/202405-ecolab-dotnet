@@ -32,73 +32,58 @@ namespace ConceptArchitect.Banking
 
         public double GetBalance(int accountNumber, string password)
         {
-            if (accountNumber <= 0 ||accountNumber>lastId)
-                return -1;
+            var account = GetActiveAccount(accountNumber);
 
-            var account = accounts[accountNumber];
-
-            if(!account.Authenticate(password)) 
-                return -2;
-
-
+            account.Authenticate(password); 
+            
             return account.Balance;
         }
 
-        BankAccount GetAccount(int accountNumber)
+        BankAccount GetActiveAccount(int accountNumber)
         {
-            if (accountNumber <= 0 || accountNumber > lastId)
-                return null;
+            if (accountNumber <= 0)
+                throw new InvalidAccountException(accountNumber, "Invalid Account Number Format");
 
-            return accounts[accountNumber];
-        }
+            if (accountNumber > lastId)
+                throw new InvalidAccountException(accountNumber, "Invalid Account Number");
 
-        internal bool Deposit(int accountNumber, double amount)
-        {
-            var account= GetAccount(accountNumber);
-            if (account == null) return false;
-            
-            return account.Deposit(amount);
-        }
 
-        public TransactionStatus Withdraw(int accountNumber, int amount, string password)
-        {
-            var account = GetAccount(accountNumber);
+            var account=accounts[accountNumber];
+
             if (account == null)
-                return TransactionStatus.INVALID_ACCOUNT;
-            else
-                return account.Withdraw(amount, password);
+                throw new ClosedAccountException(accountNumber);
+
+            return account;
+        }
+
+        internal void Deposit(int accountNumber, double amount)
+        {
+            var account= GetActiveAccount(accountNumber);
+            
+            account.Deposit(amount);
+        }
+
+        public void Withdraw(int accountNumber, int amount, string password)
+        {
+            var account = GetActiveAccount(accountNumber);
+            account.Withdraw(amount, password);
         }
 
         internal string GetAccountInfo(int accountNumber, string password)
         {
-            var account = GetAccount(accountNumber);
-            if (account == null)
-                return null;
-            else if (!account.Authenticate(password))
-                return null;
-            else
-                return account.Info();
+            var account = GetActiveAccount(accountNumber);
+            account.Authenticate(password);
+            return account.Info();
         }
 
-        public TransactionStatus Transfer(int accountNumber, int amount, string password, int toAccount)
+        public void Transfer(int accountNumber, int amount, string password, int toAccount)
         {
-            var source = GetAccount(accountNumber);
-            if (source == null)
-                return TransactionStatus.INVALID_ACCOUNT;
+            var source = GetActiveAccount(accountNumber);
+           
+            var target=GetActiveAccount(toAccount);
 
-            var target=GetAccount(toAccount);
-            if(target==null)
-                return TransactionStatus.INVALID_ACCOUNT;
-
-            var result = source.Withdraw(amount, password);
-            if (result == TransactionStatus.SUCCESS)
-                if (target.Deposit(amount))
-                    return TransactionStatus.SUCCESS;
-                else
-                    return TransactionStatus.INVALID_AMOUNT;
-
-
-            return result;
+            source.Withdraw(amount, password);
+            target.Deposit(amount);
         }
     }
 }
