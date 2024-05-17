@@ -1,8 +1,8 @@
 namespace ConceptArchitect.Collections.Tests
 {
-    public class LinkedListTests
+    public class DblListTests
     {
-        LinkedList<int> list;
+        DblList<int> list;
         int[] items = { 2, 3, 9, 5 };
 
 
@@ -10,7 +10,7 @@ namespace ConceptArchitect.Collections.Tests
         public void Setup()
         {
 
-            list = new LinkedList<int>();
+            list = new DblList<int>();
             foreach (var item in items)
                 list.Add(item);
 
@@ -19,14 +19,14 @@ namespace ConceptArchitect.Collections.Tests
         [Test]
         public void NewLinkedListHasZeroCount()
         {
-            var list = new LinkedList<int>();
+            var list = new DblList<int>();
             Assert.That(list.Count, Is.EqualTo(0));
         }
 
         [Test]
         public void CanCreateListOfString()
         {
-            var list= new LinkedList<string>();
+            var list= new DblList<string>();
             list.Add("Hi");
 
             Assert.That(list[0], Is.EqualTo("Hi"));
@@ -169,7 +169,7 @@ namespace ConceptArchitect.Collections.Tests
         [Test]
         public void CanSumAListOfValues()
         {
-            var numbers = new LinkedList<int>();
+            var numbers = new DblList<int>();
                 
             numbers.Add(1);
             numbers.Add(2);
@@ -191,7 +191,7 @@ namespace ConceptArchitect.Collections.Tests
         {
             int[] data2 = { 9, 1, 8 };
 
-            var list2 = new LinkedList<int>();
+            var list2 = new DblList<int>();
             foreach (var item in data2)
                 list2.Add(item);
 
@@ -199,7 +199,54 @@ namespace ConceptArchitect.Collections.Tests
 
             Assert.That(list3.Count, Is.EqualTo(list.Count + list2.Count));
 
+            var x = 0;
+            for(var i=0; i<list.Count; i++)
+                Assert.That(list3[x++], Is.EqualTo(list[i]));
+
+            for (var i = 0; i < list2.Count; i++)
+                Assert.That(list3[x++], Is.EqualTo(list2[i]));
 
         }
+
+        [Test]
+        public void TwoListsWithSameValuesShouldBeEqual()
+        {
+            var list1 = new DblList<int>();
+            var list2= new DblList<int>();
+            foreach (var item in items)
+            {
+                list1.Add(item);
+                list2.Add(item);
+            }
+
+            Assert.True(list1 == list2);
+        }
+
+
+        [Test]
+        public void CanAddItemToListUsingInsertOperator()
+        {
+            var list = new DblList<int>();
+            
+            list= list << 10;
+
+            Assert.That(list.Count, Is.EqualTo(1));
+            Assert.That(list[0], Is.EqualTo(10));
+        }
+
+
+        [Test]
+        public void CanAddMultipleItemsToListUsingInsertOperator()
+        {
+            var list = new DblList<int>();
+
+            list = list << 10 << 20 <<30;
+
+            Assert.That(list.Count, Is.EqualTo(3));
+            for(var i=0;i<3;i++)
+                Assert.That(list[i], Is.EqualTo((i+1)*10));
+
+        }
+
     }
 }

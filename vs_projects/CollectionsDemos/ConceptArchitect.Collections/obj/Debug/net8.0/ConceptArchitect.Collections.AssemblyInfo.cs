@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConceptArchitect.Collections")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d1ad57c00c8a52a8497a8ccc52b70e8937acde4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3577473a84d9f261df4b8f2cbf6506d93f7c9d17")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConceptArchitect.Collections")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConceptArchitect.Collections")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
