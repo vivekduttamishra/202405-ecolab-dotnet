@@ -92,10 +92,6 @@ namespace ConceptArchitect.Collections
             }
         }
 
-
-
-
-
         public X Remove(int index)
         {
             if (index < 0 || index >= Count)
@@ -118,7 +114,6 @@ namespace ConceptArchitect.Collections
 
             return n.Value;
         }
-
 
         public void Insert(int index, X value)
         {
@@ -201,5 +196,57 @@ namespace ConceptArchitect.Collections
 
         }
 
+
+        //public void PrintItems()
+        //{
+        //    for(var node=first;node!= null; node = node.Next)
+        //        Console.WriteLine(node.Value);
+        //}
+
+
+        //public int IndexOf(X item)
+        //{
+        //    int i = 0;
+        //    for (var node = first; node != null; node = node.Next)
+        //        if (node.Value.Equals(item))
+        //            return i;
+        //        else
+        //            i++;
+
+        //    return -1;
+        //}
+
+        //public ISequence<X> FindAll(X item)
+        //{
+        //    DblList<X> result= new DblList<X>();
+        //    for (var node = first; node != null; node = node.Next)
+        //        if (first.Value.Equals(item))
+        //            result.Add(first.Value);
+
+        //    return result;
+        //}
+
+        //public ISequence<int> FindIncides(X item)
+        //{
+        //    DblList<int> result = new DblList<int>();
+        //    int i = 0;
+        //    for (var node = first; node != null; node = node.Next)
+        //    {
+        //        if (first.Value.Equals(item))
+        //            result.Add(i);
+        //        i++;
+        //    }
+
+        //    return result;
+        //}
+
+        //public double Average()
+        //{
+        //    double sum = 0;
+        //    for (var node = first; node != null; node = node.Next)
+        //        sum += node.Value;
+
+        //    return sum / Count;
+        //}
     }
 }

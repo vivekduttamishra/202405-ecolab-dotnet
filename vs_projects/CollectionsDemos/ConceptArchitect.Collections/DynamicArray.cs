@@ -54,7 +54,22 @@
                 var newArray = new T[Capacity + factor];
                 Array.Copy(array, newArray, Count);
                 array= newArray;
+                
             }
         }
+
+        //public ISequence<int> FindIncides(X item)
+        //{
+        //    DblList<int> result = new DblList<int>();
+        //    int i = 0;
+        //    for (; i<Count;i++)
+        //    {
+        //        if (array[i].Equals(item))
+        //            result.Add(i);
+        //        i++;
+        //    }
+
+        //    return result;
+        //}
     }
 }
