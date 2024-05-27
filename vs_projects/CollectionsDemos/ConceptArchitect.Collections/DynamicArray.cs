@@ -40,11 +40,12 @@
 
         public bool IsFull => Count == Capacity;
 
-        public void Add(T value)
+        public ISequence<T> Add(T value)
         {
             EnsureCapacity();
             array[Count] = value;
             Count++;
+            return this;
         }
 
         private void EnsureCapacity()

@@ -1,6 +1,8 @@
-namespace GenericTests
+using ConceptArchitect.BookManagement;
+
+namespace GenericTests.Tests
 {
-    public class Tests
+    public class GenericTests
     {
         Book book = new Book()
         {
@@ -20,9 +22,9 @@ namespace GenericTests
         [Test]
         public void GetIdReturnsTheHashCodeOfAnObject()
         {
-            
 
-            var id = GenericHelper.GetId<Book>(book);
+
+            var id = GenericHelper.GetId(book);
 
             Assert.That(id, Is.EqualTo(book.GetHashCode()));
         }
@@ -48,8 +50,8 @@ namespace GenericTests
         [Test]
         public void EqualsCantComparesDiffentTypeOfObject()
         {
-            
-            Assert.False(GenericHelper.Equals(bike,book));
+
+            Assert.False(Equals(bike, book));
         }
 
         [Test]
@@ -64,9 +66,9 @@ namespace GenericTests
         [Ignore("Will Not work. This is just documentation")]
         public void CreateObjectCanNotCreatesTheObjectOfClassesWithoutZeroArgumentConstructor()
         {
-           // var bike = GenericHelper.CreateObject<Bike>();
+            // var bike = GenericHelper.CreateObject<Bike>();
 
-            
+
         }
 
         [Test]
@@ -75,7 +77,7 @@ namespace GenericTests
             var budget = 200;
 
             var book = GenericHelper.FindFirstInBudget(budget,
-                    new Book() { Title = "A", Price=300 },
+                    new Book() { Title = "A", Price = 300 },
                     new Book() { Title = "B", Price = 190 },
                     new Book() { Title = "C", Price = 200 },
                     new Book() { Title = "D", Price = 90 },
@@ -83,7 +85,7 @@ namespace GenericTests
                     );
 
 
-            Assert.That(book.Title, Is.EqualTo( "B" ));
+            Assert.That(book.Title, Is.EqualTo("B"));
 
 
         }

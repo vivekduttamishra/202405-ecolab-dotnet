@@ -6,6 +6,6 @@
 
         int Count { get; }
 
-        void Add(X value);
+        ISequence<X> Add(X value);
     }
 }

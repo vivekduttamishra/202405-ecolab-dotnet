@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace ConceptArchitect.Collections.Utils
 {
+    public delegate bool Criteria<T>(T item);
+    public delegate double DoubleExtractor<T>(T item);
+
+    public delegate O Converter<I,O>(I item);
+
     public static class SequenceUtils
     {
         public static ISequence<T> AddMany<T>(this ISequence<T> sequence, params T[] items)
@@ -73,15 +78,49 @@ namespace ConceptArchitect.Collections.Utils
             return result;
         }
 
-        public static double Average<X>(this ISequence<X> sequence)
+        public static double Average<X>(this ISequence<X> items,DoubleExtractor<X> ToDouble=null)
         {
-            double sum = 0;
-            for (var i = 0; i < sequence.Count; i++)
-                sum += 1;// sequence[i];
+            if (ToDouble == null)
+                ToDouble = x => Convert.ToDouble(x);
 
-            return sum / sequence.Count;
+            double sum = 0;
+            for (var i = 0; i < items.Count; i++)
+                sum += ToDouble(items[i]); //items[i];
+
+            return sum / items.Count;
+        }
+
+        public static ISequence<O> Select<I,O>(this ISequence<I> items,Converter<I,O> converter)
+        {
+            var result= new DblList<O>();
+            for(int i=0; i<items.Count; i++)
+            {
+                O o = converter(items[i]); 
+                result.Add(o);
+            }
+
+            return result;
         }
 
         
+        public static ISequence<T> Where<T>(this ISequence<T> items, Criteria<T> match=null)
+        {
+
+            if (match == null)
+                match = x => true;
+
+
+
+            var result = new DblList<T>();
+            for (var i = 0; i < items.Count; i++)
+            {
+                if (match(items[i]))
+                    result.Add(items[i]);
+            }                
+
+            return result;
+        }
+
+
     }
 }

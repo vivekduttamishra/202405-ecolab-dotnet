@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericTests
+namespace GenericTests.Tests.Tests
 {
     public class CSFeaturesTests
     {

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GenericTests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenericTests
+namespace ConceptArchitect.BookManagement
 {
     public class Book:ISellable
     {

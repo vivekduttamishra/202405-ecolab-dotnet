@@ -17,7 +17,7 @@ namespace ConceptArchitect.Collections
 
         private Node first; //null
 
-        public void Add(X value)
+        public ISequence<X> Add(X value)
         {
             var newNode = new Node()
             {
@@ -28,7 +28,7 @@ namespace ConceptArchitect.Collections
             if (first == null)
             {
                 first = newNode;
-                return;
+                return this;
             }
 
             //add after the last node.
@@ -42,6 +42,7 @@ namespace ConceptArchitect.Collections
             var last = node;
             newNode.Previous = last;
             last.Next = newNode;
+            return this;
 
         }
 
