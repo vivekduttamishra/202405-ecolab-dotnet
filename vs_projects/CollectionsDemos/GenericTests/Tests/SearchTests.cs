@@ -13,13 +13,13 @@ namespace GenericTests.Tests
     public class SearchTests
     {
         ISequence<Book> books;
-        BookDb db;
+        BookRepository db;
         DblList<int> numbers;
 
         [SetUp]
         public void Setup()
         {
-            db = new BookDb();
+            db = new BookRepository();
             books = db.Books;
             numbers = new DblList<int>();
             for(var i=0;i<100;i++)

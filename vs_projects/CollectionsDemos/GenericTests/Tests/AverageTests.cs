@@ -21,7 +21,7 @@ namespace GenericTests.Tests
         public void Init()
         {
             numbers = new DblList<int>().AddMany(1, 2, 3, 4);
-            var db = new BookDb();
+            var db = new BookRepository();
             books = db.Books;
             horses = new DblList<Horse>()
                     .AddMany(

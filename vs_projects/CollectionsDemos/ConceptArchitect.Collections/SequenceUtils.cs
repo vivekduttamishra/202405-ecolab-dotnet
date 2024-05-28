@@ -121,6 +121,18 @@ namespace ConceptArchitect.Collections.Utils
             return result;
         }
 
+        public static T FirstOrDefault<T>(this ISequence<T> sequence, Criteria<T> criteria=null)
+        {
+            if (criteria == null)
+                criteria = x => true;
+
+            var result = sequence.Where(criteria);
+
+            if (result.Count == 0)
+                return default(T);
+            else
+                return result[0];
+        }
 
     }
 }

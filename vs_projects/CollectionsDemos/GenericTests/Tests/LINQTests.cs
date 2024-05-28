@@ -16,7 +16,7 @@ namespace GenericTests.Tests
         [SetUp]
         public void Init()
         {
-            var db = new BookDb();
+            var db = new BookRepository();
             books = db.Books;
         }
 
