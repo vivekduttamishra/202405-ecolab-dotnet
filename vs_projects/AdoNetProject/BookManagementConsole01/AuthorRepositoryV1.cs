@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 
 namespace BookManagementConsole01
 {
-    public class AuthorRepository
+    public class AuthorRepositoryV1
     {
-        string connectionString;
-        public AuthorRepository(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
         public List<Author> GetAllAuthors()
         {         
         
@@ -26,7 +21,7 @@ namespace BookManagementConsole01
                 
                 //2. Get the connection object
                 connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
                 connection.Open(); //makes connection to database
 
                 //if we reach here we are connected.
@@ -89,7 +84,7 @@ namespace BookManagementConsole01
 
                 //2. Get the connection object
                 connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
                 connection.Open(); //makes connection to database
 
                 //if we reach here we are connected.
@@ -147,7 +142,7 @@ namespace BookManagementConsole01
 
                 //2. Get the connection object
                 connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
                 connection.Open(); //makes connection to database
 
                 //if we reach here we are connected.
@@ -192,7 +187,7 @@ namespace BookManagementConsole01
 
                 //2. Get the connection object
                 connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
                 connection.Open(); //makes connection to database
 
                 //if we reach here we are connected.
@@ -238,7 +233,7 @@ namespace BookManagementConsole01
 
                 //2. Get the connection object
                 connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
                 connection.Open(); //makes connection to database
 
                 //if we reach here we are connected.

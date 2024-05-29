@@ -10,7 +10,8 @@ namespace BookManagementConsole01
     {
         static void Main()
         {
-            var repsitory = new AuthorRepository();
+            var connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=ecolab202405;Integrated Security=True;Encrypt=False";
+            var repsitory = new AuthorRepository(connectionString);
 
             var authors = repsitory.GetAllAuthors();
 
