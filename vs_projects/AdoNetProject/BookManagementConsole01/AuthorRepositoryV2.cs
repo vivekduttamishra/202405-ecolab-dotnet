@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BookManagementConsole01
 {
-    public class AuthorRepository
+    public class AuthorRepositoryV2
     {
         string connectionString;
-        public AuthorRepository(string connectionString)
+        public AuthorRepositoryV2(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -69,29 +69,35 @@ namespace BookManagementConsole01
                     connection.Close();
                 }
             }
-
-
             
-
-           
-            
-
         }
    
     
         public Author GetAuthorById(string id)
         {
+            //1. Get a provider factory to get connection and other objects
             DbConnection connection = null;
+
             try
             {
+
+                //2. Get the connection object
                 connection = new SqlConnection();
                 connection.ConnectionString = connectionString;
                 connection.Open(); //makes connection to database
 
+                //if we reach here we are connected.
+
+                //3. Create a command that we execute on connection
                 DbCommand command = connection.CreateCommand();
-                
                 command.CommandText = $"select * from authors where id='{id}'";
+
+
+                //4. execute the command to get the result
                 DbDataReader reader = command.ExecuteReader();
+
+                //5. now loop through reader to get the results
+
                 if (reader.Read())
                 {
                     var author = new Author();
@@ -106,6 +112,8 @@ namespace BookManagementConsole01
                 }
                 else
                     throw new InvalidIdException<string>(id,$"Invalid Author Id:{id}");
+
+
             }
             catch (Exception ex)
             {
@@ -119,27 +127,37 @@ namespace BookManagementConsole01
                     connection.Close();
                 }
             }
+
+
         }
 
         public void AddAuthor(Author author)
         {
+            //1. Get a provider factory to get connection and other objects
             DbConnection connection = null;
 
             try
             {
+
+                //2. Get the connection object
                 connection = new SqlConnection();
                 connection.ConnectionString = connectionString;
                 connection.Open(); //makes connection to database
 
+                //if we reach here we are connected.
+
+                //3. Create a command that we execute on connection
                 DbCommand command = connection.CreateCommand();
-
-
                 command.CommandText = $"insert into Authors(id,name,biography,photograph,email)" +
                                       $"values ('{author.Id}','{author.Name}','{author.Biography}',"+
                                       $"        '{author.Photograph}','{author.Email}')";
 
 
+                //4. execute the command to get the result
                 var result = command.ExecuteNonQuery();
+
+                //5. now loop through reader to get the results
+                //return result == 1;
 
             }
             catch (Exception ex)
@@ -154,6 +172,7 @@ namespace BookManagementConsole01
                     connection.Close();
                 }
             }
+
 
         }
 
