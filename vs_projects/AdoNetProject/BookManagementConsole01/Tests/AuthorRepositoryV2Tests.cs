@@ -3,9 +3,9 @@ using System.Data.SqlClient;
 
 namespace BookManagementConsole01
 {
-    public class AuthorRepositoryTests
+    public class AuthorRepositoryV2Tests
     {
-        AuthorRepository authorRepository;
+        AuthorRepositoryV2 authorRepository;
 
         Author[] authorList =
         {
@@ -27,7 +27,7 @@ namespace BookManagementConsole01
         [SetUp  ]
         public void Setup()
         {
-            authorRepository = new AuthorRepository(connectionString);
+            authorRepository = new AuthorRepositoryV2(connectionString);
             SeedDatabase();
         }
 

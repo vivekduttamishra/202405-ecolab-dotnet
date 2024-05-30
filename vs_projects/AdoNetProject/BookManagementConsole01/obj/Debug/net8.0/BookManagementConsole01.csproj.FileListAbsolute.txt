@@ -104,3 +104,13 @@ D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagement
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\appsettings.json
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\works\corporate\202405-ecolab-dotnet\vs_projects\AdoNetProject\BookManagementConsole01\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll

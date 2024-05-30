@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookManagementConsole01.Tests;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -10,243 +11,85 @@ namespace BookManagementConsole01
 {
     public class AuthorRepository
     {
+        DbManager manager;
         string connectionString;
-        public AuthorRepository(string connectionString)
+        public AuthorRepository(DbManager manager)
         {
-            this.connectionString = connectionString;
+            this.manager = manager;
         }
+
+        private Author AuthorFactory(DbDataReader reader)
+        {
+            var author = new Author();
+            author.Id = reader["id"].ToString();
+            author.Name = reader["name"].ToString();
+            author.Biography = reader["biography"].ToString();
+            author.Email = reader["email"].ToString();
+            author.Photograph = reader["photograph"].ToString();
+            return author;
+        }
+
         public List<Author> GetAllAuthors()
-        {         
-        
-            //1. Get a provider factory to get connection and other objects
-            DbConnection connection = null;
+        {
+            var qry = "select * from authors";
 
-            try 
-            {
-                
-                //2. Get the connection object
-                connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open(); //makes connection to database
-
-                //if we reach here we are connected.
-
-                //3. Create a command that we execute on connection
-                DbCommand command = connection.CreateCommand();
-                command.CommandText = "select * from authors";
-            
-
-                //4. execute the command to get the result
-                DbDataReader reader = command.ExecuteReader();
-
-                //5. now loop through reader to get the results
-                var authors = new List<Author>();
-                while(reader.Read())
-                {
-                    var author = new Author();
-
-                    author.Id = reader["id"].ToString();
-                    author.Name = reader["name"].ToString();
-                    author.Biography = reader["biography"].ToString();
-                    author.Email= reader["email"].ToString();
-                    author.Photograph = reader["photograph"].ToString();
-
-                    authors.Add(author);
-                }
-                
-                return authors;
-
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"LOG: {ex.Message}");
-                throw; //throw same ex you received.    
-            }
-            finally
-            {
-                if (connection!=null)
-                {
-                    connection.Close();
-                }
-            }
-
-
-            
-
-           
-            
+            return manager.Select(qry, AuthorFactory);
 
         }
    
     
         public Author GetAuthorById(string id)
         {
-            DbConnection connection = null;
-            try
-            {
-                connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open(); //makes connection to database
 
-                DbCommand command = connection.CreateCommand();
-                
-                command.CommandText = $"select * from authors where id='{id}'";
-                DbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    var author = new Author();
-
-                    author.Id = reader["id"].ToString();
-                    author.Name = reader["name"].ToString();
-                    author.Biography = reader["biography"].ToString();
-                    author.Email = reader["email"].ToString();
-                    author.Photograph = reader["photograph"].ToString();
-
-                    return author;
-                }
-                else
-                    throw new InvalidIdException<string>(id,$"Invalid Author Id:{id}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"LOG: {ex.Message}");
-                throw; //throw same ex you received.    
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
+            var author= manager.FirstOrDefault($"select * from authors where id='{id}'", AuthorFactory);
+            if(author==null)
+                throw new InvalidIdException<string>(id,$"Invalid Author: '{id}'");
+            return author;
         }
 
         public void AddAuthor(Author author)
         {
-            DbConnection connection = null;
+            var qry = $"insert into Authors(id,name,biography,photograph,email)" +
+                    $"values ('{author.Id}','{author.Name}','{author.Biography}'," +
+                    $"        '{author.Photograph}','{author.Email}')";
 
             try
             {
-                connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open(); //makes connection to database
 
-                DbCommand command = connection.CreateCommand();
+                manager.ExecuteUpdate(qry);
 
-
-                command.CommandText = $"insert into Authors(id,name,biography,photograph,email)" +
-                                      $"values ('{author.Id}','{author.Name}','{author.Biography}',"+
-                                      $"        '{author.Photograph}','{author.Email}')";
-
-
-                var result = command.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
+            }catch(SqlException ex)
             {
-                Console.WriteLine($"LOG: {ex.Message}");
-                throw; //throw same ex you received.    
+                throw new DuplicateIdException<string>(author.Id, $"Duplicate id: {author.Id}",ex);
             }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
+
+           
 
         }
 
         public void UpdateAuthor(Author author)
         {
-            //1. Get a provider factory to get connection and other objects
-            DbConnection connection = null;
 
-            try
-            {
-
-                //2. Get the connection object
-                connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open(); //makes connection to database
-
-                //if we reach here we are connected.
-
-                //3. Create a command that we execute on connection
-                DbCommand command = connection.CreateCommand();
-                command.CommandText = $"update Authors " +
+            var qry = $"update Authors " +
                                       $"set name='{author.Name}',biography='{author.Biography}'," +
                                       $"    photograph='{author.Photograph}', email='{author.Email}' " +
                                       $"where id='{author.Id}'";
 
+            var result= manager.ExecuteUpdate(qry);
+            if (result == 0)
+                throw new InvalidIdException<string>(author.Id, $"No author with id :{author.Id}");
 
-                //4. execute the command to get the result
-                var result = command.ExecuteNonQuery();
-
-                //5. now loop through reader to get the results
-                //return result == 1;
-                if (result == 0)
-                    throw new InvalidIdException<string>(author.Id, $"No author with id :{author.Id}");
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"LOG: {ex.Message}");
-                throw; //throw same ex you received.    
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-
+ 
+           
 
         }
 
         public void DeleteAuthor(string id)
         {
-            //1. Get a provider factory to get connection and other objects
-            DbConnection connection = null;
+            var result =manager.ExecuteUpdate($"delete from Authors where id='{id}'");
 
-            try
-            {
-
-                //2. Get the connection object
-                connection = new SqlConnection();
-                connection.ConnectionString = connectionString;
-                connection.Open(); //makes connection to database
-
-                //if we reach here we are connected.
-
-                //3. Create a command that we execute on connection
-                DbCommand command = connection.CreateCommand();
-                command.CommandText = $"delete from Authors where id='{id}'";
-
-
-                //4. execute the command to get the result
-                var result = command.ExecuteNonQuery();
-
-                //5. now loop through reader to get the results
-                if (result == 0)
-                    throw new InvalidIdException<string>(id, $"Author Id:{id} Not found");
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"LOG: {ex.Message}");
-                throw; //throw same ex you received.    
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-
-
+            if (result == 0)
+                throw new InvalidIdException<string>(id, $"Author Id:{id} Not found");
         }
 
     }
