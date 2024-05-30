@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookManagementConsole01
 {
-    public delegate DbConnection ConnectionFactory();
+    //public delegate DbConnection ConnectionFactory();
 
     public delegate T CommandExecutor<T>(DbCommand command);
 
@@ -16,8 +16,9 @@ namespace BookManagementConsole01
 
     public class DbManager
     {
-        ConnectionFactory connectionFactory;
-        public DbManager(ConnectionFactory connectionFactory)
+        //ConnectionFactory connectionFactory;
+        Func<DbConnection> connectionFactory;
+        public DbManager(Func<DbConnection> connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }

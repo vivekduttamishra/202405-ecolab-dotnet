@@ -29,19 +29,25 @@ namespace BookManagementConsole01.Tests
         [SetUp]
         public void Setup()
         {
-            var configuration= new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())       
-                .AddJsonFile("appsettings.json")
-                .Build();
+            //var configuration= new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())       
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
 
-            var connectionString= configuration["connection_string_test"]
+            //var connectionString = configuration["connection_string_test"];
 
-            manager = new DbManager(() =>
-            {
-                var connection = new SqlConnection(connectionString);
-                connection.Open();
-                return connection;
-            });
+            //var connectionString = AppSettings.I["connection_string_test"];
+
+
+            //manager = new DbManager(() =>
+            //{
+            //    var connection = new SqlConnection(connectionString);
+            //    connection.Open();
+            //    return connection;
+            //});
+
+
+            manager = new DbManager(new DefaultConnectionFactory("connection_string_test").Factory);
 
             authorRepository = new AuthorRepository(manager);
 
