@@ -33,10 +33,7 @@ namespace Demo01
 
            
 
-            var t = TransactionStatus.InsufficientBalance;
-
-            Console.WriteLine(t);
-            Console.WriteLine((int)t);
+           
         }
     }
 }

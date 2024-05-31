@@ -1,36 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\Demo04\\Demo04.csproj": {}
+    "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Demo04\\Demo04.csproj": {}
   },
   "projects": {
-    "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\Demo04\\Demo04.csproj": {
+    "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Demo04\\Demo04.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\Demo04\\Demo04.csproj",
+        "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Demo04\\Demo04.csproj",
         "projectName": "Demo04",
-        "projectPath": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\Demo04\\Demo04.csproj",
+        "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Demo04\\Demo04.csproj",
         "packagesPath": "C:\\Users\\vivek\\.nuget\\packages\\",
-        "outputPath": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\Demo04\\obj\\",
+        "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Demo04\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "D:\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\vivek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -41,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -71,7 +67,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

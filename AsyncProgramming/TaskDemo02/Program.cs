@@ -9,24 +9,39 @@ namespace TaskDem01
 {
      class Program
     {
+        static Dictionary<int,int> threadJobs=new Dictionary<int, int>();
         static void Main()
         {
-            for(int i = 0; i < 20; i++)
+            
+            List<Task> tasks=new List<Task>();
+
+            for(int i = 0; i < 1000; i++)
             {
                 var id = i;
-                var t = new Task(() => LongJob(id, 2000));
+                var t = new Task(() => LongJob(id, 10));
                 t.Start();
+                tasks.Add(t);
                 
             }
 
-            Console.WriteLine("Hit Enter to Exit");
-            Console.ReadLine();
-            Console.WriteLine("Program Ends...");
+            Task.WaitAll(tasks.ToArray());
+
+            Console.WriteLine("Thread#\tWork Done");
+            foreach (var id in threadJobs.Keys)
+            {
+                Console.WriteLine($"{id}\t{threadJobs[id]}");
+            }
 
         }
         public static void LongJob(int id, int time)
         {
+            
             var threadId= Thread.CurrentThread.ManagedThreadId;
+            if (threadJobs.ContainsKey(threadId))
+                threadJobs[threadId]++;
+            else
+                threadJobs[threadId] = 1;
+
             Console.WriteLine($"Task #{id} starts on Thread #{threadId}");
             Thread.Sleep(time);
             Console.WriteLine($"Task#{id} ends on Thread #{threadId}");

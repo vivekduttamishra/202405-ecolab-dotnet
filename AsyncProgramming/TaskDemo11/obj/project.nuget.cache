@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DOG5LtbB7p6b9ozVCDB1kBpCN4IWj+ofA+xxepk/3iougHwSowOqIIBQ74ZM87JQRsYNb2J77t9rEm++Jy1MKA==",
+  "dgSpecHash": "vFsgWbl2ObNPdC7oq84zRCTLE8Ka5ecVO/N2odzSxsZgm9bFh9dpX0kAuZ6YbcqAO0RshX2UxFnddrgDEuRxOQ==",
   "success": true,
-  "projectFilePath": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\TaskDemo11\\TaskDemo11.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\TaskDemo11\\TaskDemo11.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.26\\microsoft.netcore.app.host.win-x64.6.0.26.nupkg.sha512"
+  ],
   "logs": []
 }

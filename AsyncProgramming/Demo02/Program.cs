@@ -12,9 +12,13 @@ namespace Demo02
         static void Main()
         {
             ThreadStart r = SayHello;
-            var t = new Thread(SayHello);
 
+
+            var t = new Thread(SayHello);
             t.Start();  //call SayHello on a new Thread
+
+
+
             r();        //call SayHello on the current Thread
 
             

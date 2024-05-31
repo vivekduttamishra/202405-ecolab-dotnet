@@ -13,29 +13,19 @@ namespace TaskDemo04
         {
             int n = 8, r = 3;
 
-            var fn = Task.Factory.StartNew(() => n.Factorial()); //returns a Task that will return 'int' on finish
+            Task<int> fn = Task.Factory.StartNew(() => n.Factorial()); //returns a Task that will return 'int' on finish
 
-            //var fn_r = Task.Factory.StartNew(()=>(n-r).Factorial());
+            //fn.Wait(); //wait for it to finish
 
-            var fn_r = new Task<int>( ()=>(n-r).Factorial());
-            fn_r.Start();
+            //while(!fn.IsCompleted)
+            //{
+            //    Console.Write(".");
+            //    Thread.Sleep(200);
+            //}
 
-            Console.WriteLine("Please wait while we calculate permutation");
+            Console.WriteLine("Please wait...");
 
-            while(!fn.IsCompleted ||!fn_r.IsCompleted)
-            {
-                Console.Write(".");
-                Thread.Sleep(50);
-            }
-            
-            //Task.WaitAll(fn, fn_r);
-
-
-            var result = fn.Result / fn_r.Result; //if Result is called when Task has not completed it waits internally
-
-            Console.WriteLine($"\n{n}P{r} = {result}");
-
-
+            Console.WriteLine(fn.Result); //give the result after auto wait
 
 
 

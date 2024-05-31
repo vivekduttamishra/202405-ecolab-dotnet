@@ -1,4 +1,4 @@
-﻿using ConceptArchitect.Collections;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +15,11 @@ namespace Demo05
             int n = 8;
             int r = 3;
 
-            var result = PerformanceMeasure.InvokeTimed(() => PermutationAsync2(n, r));
+            var result = PerformanceMeasure.MeasurePerformance(() => PermutationAsync(n, r));
 
-            Console.WriteLine($"{n}P{r}={result.ReturnValue}");
+            Console.WriteLine($"{n}P{r}={result.Result}");
             Console.WriteLine($"Total Time taken is {result.TimeTaken.TotalMilliseconds} ms");
-            Console.WriteLine($"Error: {result.ExceptionThrown?.Message}");
+            
         }
 
 
@@ -57,8 +57,14 @@ namespace Demo05
 
             var fn_r = new Factorial(n-r); //runs work in parallel
 
-            //fn.Wait();
-            //fn_r.Wait();
+
+            //now we can access the result, when task is over
+            //but we will reach here immediately
+            //lets make it wait
+
+            
+
+            //Now the task will take n seconds instread of 2n-r seconds.
 
             return fn.Result / fn_r.Result;
         }
@@ -67,8 +73,9 @@ namespace Demo05
         {
             
             var fn = n.Factorial();
+            //wait for first to complete
             var fn_r = (n-r).Factorial();
-
+            //wait for second to complete
             return fn / fn_r;
         }
     }

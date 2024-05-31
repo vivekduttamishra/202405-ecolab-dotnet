@@ -8,28 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\vivek\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\vivek\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\WinAppPrimeFinder\\WinAppPrimeFinder.csproj",
+      "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\WinAppPrimeFinder\\WinAppPrimeFinder.csproj",
       "projectName": "WinAppPrimeFinder",
-      "projectPath": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\WinAppPrimeFinder\\WinAppPrimeFinder.csproj",
+      "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\WinAppPrimeFinder\\WinAppPrimeFinder.csproj",
       "packagesPath": "C:\\Users\\vivek\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorks\\Corporate\\202207-ecolab-dotnet\\vs-projects\\AsyncProgramming\\WinAppPrimeFinder\\obj\\",
+      "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\WinAppPrimeFinder\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "D:\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\vivek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -56,10 +51,29 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -68,7 +82,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
