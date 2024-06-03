@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rOk9O5RQYSu7AoNletePq/PCQNqgOeU44h6SbliH4GHuhS4dFLuKQ2k/o5X8r+PvAHFS2lWdh3bm8otOszKLXQ==",
+  "dgSpecHash": "JRC1XwtbxNC63wo5F/oDkAX26rr8EkRwzggWj+oMOSCMTV9Lr2KIEOwL68YvblKcwKBPmmZ11P25oC2fyT5WrQ==",
   "success": true,
   "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\AsyncProgramming\\Dem08\\Demo08.csproj",
   "expectedPackageFiles": [
@@ -95,10 +95,7 @@
     "C:\\Users\\vivek\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\vivek\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\vivek\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\vivek\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512",
-    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+    "C:\\Users\\vivek\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": []
 }

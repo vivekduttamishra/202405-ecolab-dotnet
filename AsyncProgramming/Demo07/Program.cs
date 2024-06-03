@@ -50,6 +50,8 @@ namespace Demo07
 
                 workers.ForEach(worker => worker.Wait());
 
+                 return 0;
+
              });
 
 

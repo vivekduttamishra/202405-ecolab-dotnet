@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ConceptArchitect.Collections">
-      <HintPath>..\..\ConceptArchitect.Collections\ConceptArchitect.Collections\bin\Debug\net6.0\ConceptArchitect.Collections.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\ConceptArchitect.Collections\ConceptArchitect.Collections.csproj" />
   </ItemGroup>
 
 </Project>

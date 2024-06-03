@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericTests", "GenericTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalsDemo", "AnimalsDemo\AnimalsDemo.csproj", "{02C1F4A0-DA6A-4B52-BDEA-3972C2825396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.BookRepository", "ConceptArchitect.BookRepository\ConceptArchitect.BookRepository.csproj", "{7DDDB0E7-716B-47E5-893C-65A74C249537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.BookRepository", "ConceptArchitect.BookRepository\ConceptArchitect.BookRepository.csproj", "{7DDDB0E7-716B-47E5-893C-65A74C249537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopLevelCode", "TopLevelCode\TopLevelCode.csproj", "{B6846DD6-35C2-44AC-AECF-E3EC0B9EE084}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7DDDB0E7-716B-47E5-893C-65A74C249537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DDDB0E7-716B-47E5-893C-65A74C249537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DDDB0E7-716B-47E5-893C-65A74C249537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6846DD6-35C2-44AC-AECF-E3EC0B9EE084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6846DD6-35C2-44AC-AECF-E3EC0B9EE084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6846DD6-35C2-44AC-AECF-E3EC0B9EE084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6846DD6-35C2-44AC-AECF-E3EC0B9EE084}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,6 +49,7 @@ namespace Demo07
                 //Step3. Wait for All workers to finish
 
                 workers.ForEach(worker => worker.Wait());
+                 return 0;
 
              });
 

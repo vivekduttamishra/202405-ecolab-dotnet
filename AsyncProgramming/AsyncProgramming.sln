@@ -41,13 +41,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDemo08", "TaskDemo08\Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDemo09", "TaskDemo09\TaskDemo09.csproj", "{1142C48D-4DA6-45D3-BC0E-39F2C65A9030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinAppPrimeFinder", "WinAppPrimeFinder\WinAppPrimeFinder.csproj", "{95523FB7-FB8D-4904-9BFC-D4E2A1C71511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinAppPrimeFinder", "WinAppPrimeFinder\WinAppPrimeFinder.csproj", "{95523FB7-FB8D-4904-9BFC-D4E2A1C71511}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDemo10", "TaskDemo10\TaskDemo10.csproj", "{F122FF6D-DE7B-4E8C-9D8F-692EC5754B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDemo10", "TaskDemo10\TaskDemo10.csproj", "{F122FF6D-DE7B-4E8C-9D8F-692EC5754B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDemo11", "TaskDemo11\TaskDemo11.csproj", "{C93FF67A-40D1-4BB4-8A2B-DB5C3D11FFB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDemo11", "TaskDemo11\TaskDemo11.csproj", "{C93FF67A-40D1-4BB4-8A2B-DB5C3D11FFB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDemo12", "TaskDemo12\TaskDemo12.csproj", "{D0A1C173-2B61-44D1-BE0D-09DAC673CFE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskDemo12", "TaskDemo12\TaskDemo12.csproj", "{D0A1C173-2B61-44D1-BE0D-09DAC673CFE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.Collections", "ConceptArchitect.Collections\ConceptArchitect.Collections.csproj", "{821CE0D7-8FCE-488E-8ADA-97052FFC6F3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{D0A1C173-2B61-44D1-BE0D-09DAC673CFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A1C173-2B61-44D1-BE0D-09DAC673CFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A1C173-2B61-44D1-BE0D-09DAC673CFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821CE0D7-8FCE-488E-8ADA-97052FFC6F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821CE0D7-8FCE-488E-8ADA-97052FFC6F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821CE0D7-8FCE-488E-8ADA-97052FFC6F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821CE0D7-8FCE-488E-8ADA-97052FFC6F3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

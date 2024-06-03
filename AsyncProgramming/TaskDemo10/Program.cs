@@ -29,13 +29,17 @@ namespace Demo07
 
         }
 
+        static bool IsPrime(int n)
+        {
+            return false; //fake
+        }
         static List<int> FindPrimes(int min, int max)
         {
             var result = new List<int>();
 
             for(int i=min;i<= max;i++) 
             {
-                if (i.IsPrime())
+                if (IsPrime(i))
                 {
                     
                      result.Add(i);
@@ -47,14 +51,17 @@ namespace Demo07
             return result;
         }
 
-
+        bool isPrime(int n)
+        {
+            return false; //fake
+        }
 
         async static Task<List<int>> FindPrimesAsync(int min,int max)
         {
             var result=new List<int>();
             var pfr= Parallel.For(min, max, i =>
              {
-                 if(i.IsPrime())
+                 if(IsPrime(i))
                  {
                      lock(result)
                         result.Add(i);
