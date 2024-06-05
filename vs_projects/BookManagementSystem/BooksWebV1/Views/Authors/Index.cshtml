@@ -1,0 +1,28 @@
+﻿
+@model IList<ConceptArchitect.BookManagement.Author>
+
+<html>
+    <head>
+        <title>Book's Web</title>
+        <link href="stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Book's Web</h1>
+        <hr/>
+        <h2>Authors</h2>
+
+        <p>Here are @Model.Count best authors you should read</p>
+
+        <div class="author_list">
+            @foreach(var author in Model)
+            {
+               <div class="author_info">
+                   <a href="/authors/info/@author.Id">
+                       <img src="@author.Photograph"/>
+                       <span class="author_name">@author.Name</span>
+                    </a>
+               </div>
+            }
+        </div>
+    </body>
+</html>

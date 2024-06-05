@@ -71,5 +71,122 @@
             });
         }
     
+
+        public static WebApplication UseAfter(this WebApplication app, Func<HttpContext,Task> afterAction=null, 
+                                                                       Func<Exception,HttpContext,Task> exceptionHandler=null)
+        {
+            app.Use(next =>
+            {
+                return async context =>
+                {
+                    try
+                    {
+                        await next(context);  //first let other works
+                        if(afterAction!=null)
+                            await afterAction(context); //now it is your turn
+                    }
+                    catch (Exception ex)
+                    {
+                        if (exceptionHandler != null)
+                        {
+                            await exceptionHandler(ex, context);
+                            
+                        }
+                    }
+                };
+            });
+
+            return app;
+        }
+
+
+
+     
+        
+        public static WebApplication UseExceptionMapper<T>(this WebApplication app, int statusCode=500, Func<T,HttpContext,Task> exceptionHandler=null, ExceptionResponseOptions options=null) where T : Exception
+        {
+            return app.UseAfter(exceptionHandler: async (ex, context) =>
+            {
+                if (!(ex is T))
+                    throw ex; //I can't handle this exception, so I must throw it back for others.
+
+                context.Response.StatusCode = statusCode;
+
+                if(exceptionHandler!=null)
+                {
+                    await exceptionHandler((T)ex, context);
+                    return;
+                }
+
+                //default exception mapper
+                string title = $"Error: {statusCode}";
+                string details = $"We are looking into the problem";
+
+                if (options!=null)
+                {
+                    title = options.ErrorMessage;
+                    if (options.IncludeExceptionDetailsInResponse)
+                        details = $"Details: {ex.Message}";
+
+                }
+
+                await context.Response.WriteAsync(
+                                              $"<html><head><title>{title}</title></head>" +
+                                              $"<body><h1>{title}</h1>" +
+                                              $"<ul>" +
+                                              $"<li>Request:{context.Request.Method} {context.Request.Path}</li>" +
+                                              $"<li>Error:{statusCode}</li>" +
+                                              $"<ul>" +
+                                              $"<p>{details}</p>" +
+                                              $"</body></html>");
+
+            });
+        }
+
+
+
+        //public static WebApplication UseExceptionConcealer(this WebApplication app, string message="Some Error Occured!") 
+        //{
+
+        //    app.Use(next =>
+        //    {
+        //        return async context =>
+        //        {
+        //            try
+        //            {
+        //                await next(context);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                context.Response.StatusCode = 500;
+        //                await context.Response.WriteAsync(
+        //                                        $"<html><head><title>{message}</title></head>" +
+        //                                       $"<body><h1>{message}</h1>" +
+        //                                       $"<p>It shouldn't have happened. We have notified our Teasm" +
+        //                                       $"and we are working on it to fix As soon as possible</p>" +
+        //                                       $"</body></html>"
+        //                               );
+        //            }
+        //        };
+        //    });
+
+        //    return app;
+        //}
+
+
+
+        public static WebApplication UseExceptionConcealer(this WebApplication app, ExceptionResponseOptions option=null)
+        {
+            
+
+            return app.UseExceptionMapper<Exception>(500, null, option);
+        }
+
+    }
+
+    public class ExceptionResponseOptions
+    {
+        public string ErrorMessage { get; set; } = "Some Error Occured";
+        public bool IncludeExceptionDetailsInResponse { get; set; } = false;
     }
 }

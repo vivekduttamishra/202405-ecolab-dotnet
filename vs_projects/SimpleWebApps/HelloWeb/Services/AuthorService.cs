@@ -44,7 +44,7 @@ namespace HelloWeb.Services
             if (authors.ContainsKey(key))
                 return authors[key];
             else
-                return null;
+                throw new EntityNotFoundException(id, $"No Author With the given Id:{id}");
         }
     }
 

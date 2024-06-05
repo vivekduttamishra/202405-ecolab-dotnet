@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\books.jpg" />
-    <None Include="wwwroot\htmlpage.html" />
+    <ProjectReference Include="..\ConceptArchitect.BookManagement\ConceptArchitect.BookManagement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\StyleSheet.css" />
   </ItemGroup>
 
 </Project>

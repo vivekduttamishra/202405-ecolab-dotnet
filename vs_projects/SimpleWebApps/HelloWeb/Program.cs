@@ -63,12 +63,40 @@ namespace HelloWeb
         private static void MiddlewareSet05(WebApplication app)
         {
 
-            //Call data seeder here.
-
+            var hosting = app.Services.GetService<IWebHostEnvironment>();
+            
             var authorSeeder = app.Services.GetService<IAuthorDataSeeder>();
             authorSeeder.SeedData().Wait(); //can't await in non-async function
 
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            app.UseFileServer();
+
+            if(!hosting.IsProduction())
+            {
+                //Call data seeder here.            
+                app.UseDeveloperExceptionPage();
+
+            }
+            else
+            {
+                app.UseExceptionConcealer();
+            }
+
+            app.UseExceptionMapper<InvalidOperationException>(401,null,
+                                        new ExceptionResponseOptions { IncludeExceptionDetailsInResponse = true });
+
+
+            app.UseExceptionMapper<EntityNotFoundException>(404);
+
+
+            if(hosting.EnvironmentName=="HarryPotter")
+                app.UseOnUrl("/9-3/4", context => "Welcome To the Train to Hogwards");
+
             app
+               .UseOnUrl("/error", context=> throw new ArgumentException("Some invalid error occured"))
+               .UseOnUrl("/secured", context=>throw new InvalidOperationException("User Not Authenticated"))
                .UseOnUrl("/stats", async context =>
                {
                    var service = context.RequestServices.GetService<IStatsService>();

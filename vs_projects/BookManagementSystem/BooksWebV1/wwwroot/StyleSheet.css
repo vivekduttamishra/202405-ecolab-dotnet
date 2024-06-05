@@ -1,0 +1,36 @@
+﻿body {
+}
+
+li{
+    color:blue;
+}
+
+.author_info
+{
+    border:2px solid gray;
+    border-radius:20px;
+    margin-bottom:5px;
+    margin-left:10px;
+    overflow:hidden;
+    display:flex;
+
+    align-items:center;
+}
+
+.author_info img
+{
+    margin:0px;
+    width:100px;
+    clear:both;
+}
+.author_name
+{
+    margin-left:5px;
+    font-size:1.2em;
+    color:darkgray !important;
+}
+
+.author_info a {
+    text-decoration: none;
+    color: darkgray !important;
+}

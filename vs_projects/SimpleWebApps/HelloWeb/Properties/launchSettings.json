@@ -8,13 +8,13 @@
     }
   },
     "profiles": {
-        "Development": {
+        "Default": {
             "commandName": "Project",
             "dotnetRunMessages": true,
             "launchBrowser": true,
-            "applicationUrl": "http://localhost:5000",
+            "applicationUrl": "http://localhost:80",
             "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+
             }
         },
         "Production": {
@@ -26,6 +26,16 @@
                 "ASPNETCORE_ENVIRONMENT": "Production"
             }
         },
+        "Development": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "http://localhost:5000",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+
         "HarryPotter": {
             "commandName": "Project",
             "dotnetRunMessages": true,
