@@ -73,3 +73,15 @@ body {
     padding-top: 0px;
     margin-left: 20px;
 }
+
+
+.author_details .photo{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-content:center;
+}
+
+.submit{
+    margin-top:10px;
+}

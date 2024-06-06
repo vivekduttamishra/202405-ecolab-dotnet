@@ -41,7 +41,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "ConceptArchitect.BookManagement >= 1.0.0"
+      "ConceptArchitect.BookManagement >= 1.0.0",
+      "ConceptArchitect.Utils >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -50,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\BooksWebV1\\BooksWebV1.csproj",
-      "projectName": "BooksWebV1",
-      "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\BooksWebV1\\BooksWebV1.csproj",
+      "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.SqlRepository\\ConceptArchitect.BookManagement.SqlRepository.csproj",
+      "projectName": "ConceptArchitect.BookManagement.SqlRepository",
+      "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.SqlRepository\\ConceptArchitect.BookManagement.SqlRepository.csproj",
       "packagesPath": "C:\\Users\\vivek\\.nuget\\packages\\",
-      "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\BooksWebV1\\obj\\",
+      "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.SqlRepository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vivek\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -73,6 +74,9 @@
           "projectReferences": {
             "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj": {
               "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj"
+            },
+            "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj": {
+              "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj"
             }
           }
         }
@@ -98,9 +102,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

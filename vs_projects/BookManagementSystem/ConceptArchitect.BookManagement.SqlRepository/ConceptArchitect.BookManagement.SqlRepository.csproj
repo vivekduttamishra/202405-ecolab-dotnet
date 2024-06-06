@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConceptArchitect.BookManagement\ConceptArchitect.BookManagement.csproj" />
     <ProjectReference Include="..\ConceptArchitect.Utils\ConceptArchitect.Utils.csproj" />
   </ItemGroup>
 
