@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.BookManagement", "ConceptArchitect.BookManagement\ConceptArchitect.BookManagement.csproj", "{9C9FDFB6-99D9-4BC1-8B64-DF5C0BCBB6EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.BookManagement", "ConceptArchitect.BookManagement\ConceptArchitect.BookManagement.csproj", "{9C9FDFB6-99D9-4BC1-8B64-DF5C0BCBB6EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.Utils", "ConceptArchitect.Utils\ConceptArchitect.Utils.csproj", "{0CE8C733-2BA0-4F98-9F97-5035A03C157F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.Utils", "ConceptArchitect.Utils\ConceptArchitect.Utils.csproj", "{0CE8C733-2BA0-4F98-9F97-5035A03C157F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.BookManagement.JsonRepository", "ConceptArchitect.BookManagement.JsonRepository\ConceptArchitect.BookManagement.JsonRepository.csproj", "{12C3D2D2-3A4D-4159-A6F0-31235D609BDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.BookManagement.JsonRepository", "ConceptArchitect.BookManagement.JsonRepository\ConceptArchitect.BookManagement.JsonRepository.csproj", "{12C3D2D2-3A4D-4159-A6F0-31235D609BDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksWebV1", "BooksWebV1\BooksWebV1.csproj", "{39F90CF0-D714-4DE2-BDF4-D9E570A46878}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksWebV1", "BooksWebV1\BooksWebV1.csproj", "{39F90CF0-D714-4DE2-BDF4-D9E570A46878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksWebV2", "BooksWebV2\BooksWebV2.csproj", "{004360CF-8BCB-4505-8A73-E448DF9C5273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{39F90CF0-D714-4DE2-BDF4-D9E570A46878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39F90CF0-D714-4DE2-BDF4-D9E570A46878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39F90CF0-D714-4DE2-BDF4-D9E570A46878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004360CF-8BCB-4505-8A73-E448DF9C5273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004360CF-8BCB-4505-8A73-E448DF9C5273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004360CF-8BCB-4505-8A73-E448DF9C5273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004360CF-8BCB-4505-8A73-E448DF9C5273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

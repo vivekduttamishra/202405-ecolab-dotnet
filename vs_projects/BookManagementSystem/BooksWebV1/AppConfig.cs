@@ -28,7 +28,14 @@ namespace BooksWebV1
         {
             app.UseFileServer();
 
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute("Details", "{controller=Home}/{action=Index}/{id?}/{details?}");
+            });
         }
     }
 }

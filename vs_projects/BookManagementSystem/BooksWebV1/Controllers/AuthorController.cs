@@ -22,5 +22,11 @@ namespace BooksWebV1.Controllers
             var author= await authorService.GetAuthorById(id);
             return View(author);
         }
+
+        public async Task<string> Details(string id, string details)
+        {
+            var author=await authorService.GetAuthorById(id);
+            return $"{details} of {author.Name}";
+        }
     }
 }
