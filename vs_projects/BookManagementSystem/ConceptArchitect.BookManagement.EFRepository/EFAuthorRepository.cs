@@ -20,7 +20,7 @@ namespace ConceptArchitect.BookManagement.EFRepository
         {
             return await context.Authors.ToListAsync();
         }
-       
+
         public Task<Author> GetById(string id)
         {
             id = id.ToLower();
@@ -29,13 +29,13 @@ namespace ConceptArchitect.BookManagement.EFRepository
                 throw new InvalidEntityException($"Invalid Author Id:'{id}'");
             return author;
         }
-       
+
         public async Task<IList<Author>> GetAll(Func<Author, bool> criteria)
         {
             return (from author in context.Authors
-                    
+
                     where criteria(author)
-                    
+
                     select author).ToList();
         }
 
@@ -56,14 +56,18 @@ namespace ConceptArchitect.BookManagement.EFRepository
 
         public async Task<Author> Update(Author entity)
         {
-            var currentAuthor= await GetById(entity.Id);
+            var currentAuthor = await GetById(entity.Id);
             currentAuthor.Name = entity.Name;
             currentAuthor.Email = entity.Email;
-            currentAuthor.Photograph=entity.Photograph;
-            currentAuthor.Biography=entity.Biography;
+            currentAuthor.Photograph = entity.Photograph;
+            currentAuthor.Biography = entity.Biography;
 
             await context.SaveChangesAsync();
             return currentAuthor;
         }
     }
+
+
+
+
 }

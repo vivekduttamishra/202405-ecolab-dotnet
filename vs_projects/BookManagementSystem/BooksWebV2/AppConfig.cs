@@ -1,7 +1,9 @@
 ﻿using ConceptArchitect.BookManagement;
+using ConceptArchitect.BookManagement.EFRepository;
 using ConceptArchitect.BookManagement.SqlRepository;
 using ConceptArchitect.Utils;
 using ConceptArchitect.Utils.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksWebV2
 {
@@ -14,7 +16,28 @@ namespace BooksWebV2
 
             //services.DevelopementTimeServices();
 
-            services.AddTransient<IAuthorService,PersistentAuthorService>();
+            services.AddTransient<IAuthorService, PersistentAuthorService>();
+            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
+
+
+            //services.AddSqlAuthorRepository();
+
+            services.AddTransient<IRepository<Author, string>, EFAuthorRepository>();
+
+            
+
+            services.AddDbContext<BooksContext>((services, options) =>
+            {
+                var config = services.GetService<IConfiguration>();
+                var connectionString = config["ConnectionStrings:books_ef"];
+                options.UseSqlServer(connectionString);
+            });
+
+
+        }
+
+        private static void AddSqlAuthorRepository(this IServiceCollection services)
+        {
             services.AddTransient<IRepository<Author, string>, SqlAuthorRepository>();
             services.AddTransient<DbManager>(s =>
             {
@@ -22,10 +45,6 @@ namespace BooksWebV2
                 var connectionFactory = new DefaultConnectionFactory(config, "booksdb");
                 return new DbManager(connectionFactory.Factory);
             });
-           
-            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
-
-
         }
 
         private static void DevelopementTimeServices(this IServiceCollection services)
