@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksWebV1", "BooksWebV1\Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksWebV2", "BooksWebV2\BooksWebV2.csproj", "{004360CF-8BCB-4505-8A73-E448DF9C5273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.BookManagement.SqlRepository", "ConceptArchitect.BookManagement.SqlRepository\ConceptArchitect.BookManagement.SqlRepository.csproj", "{3810D11A-F624-4AB1-A179-880B4D5CF47C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptArchitect.BookManagement.SqlRepository", "ConceptArchitect.BookManagement.SqlRepository\ConceptArchitect.BookManagement.SqlRepository.csproj", "{3810D11A-F624-4AB1-A179-880B4D5CF47C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptArchitect.BookManagement.EFRepository", "ConceptArchitect.BookManagement.EFRepository\ConceptArchitect.BookManagement.EFRepository.csproj", "{63AC52FE-BA29-4290-B42B-1E5F66D8ECD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{3810D11A-F624-4AB1-A179-880B4D5CF47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3810D11A-F624-4AB1-A179-880B4D5CF47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3810D11A-F624-4AB1-A179-880B4D5CF47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AC52FE-BA29-4290-B42B-1E5F66D8ECD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AC52FE-BA29-4290-B42B-1E5F66D8ECD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AC52FE-BA29-4290-B42B-1E5F66D8ECD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AC52FE-BA29-4290-B42B-1E5F66D8ECD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
