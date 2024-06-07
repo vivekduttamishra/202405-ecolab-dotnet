@@ -17,8 +17,8 @@ namespace ConceptArchitect.Utils
 
         Task<Entity> GetById(Id id);
 
-        void Save();
+        Task Save();
     }
 
-    ]
+    
 }

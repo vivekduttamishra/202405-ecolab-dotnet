@@ -1,44 +1,97 @@
 ﻿using ConceptArchitect.Utils;
+using ConceptArchitect.Utils.Data;
+using System.Data.Common;
 
 namespace ConceptArchitect.BookManagement.SqlRepository
 {
     public class SqlAuthorRepository : IRepository<Author, string>
     {
-        public Task<Author> Add(Author entity)
+        DbManager db;
+        public SqlAuthorRepository(DbManager db)
         {
-            //insert into
-            //db.ExecuteUpdate("insert into")
-            //db.Add(entity)
+            this.db = db;
         }
 
-        public Task Delete(string id)
+        public async Task<Author> Add(Author author)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.ExecuteUpdate($"insert into Authors (id,name,biography,photograph,email) " +
+                                 $"values('{author.Id}','{author.Name}','{author.Biography}','{author.Photograph}','{author.Email}')");
+
+
+                return await GetById(author.Id);
+            }
+            catch(Exception ex)
+            {
+                throw new DuplicateIdException($"Error Adding Author: '{author.Id}':{ex.Message}", ex);
+            }
         }
 
-        public Task<IList<Author>> GetAll()
+        public async Task Delete(string id)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+
+            var rows = db.ExecuteUpdate($"delete from Authors where id='{id}'");
+            if (rows == 0)
+                throw new InvalidEntityException($"Invalid Author Id:'{id}'");
         }
 
-        public Task<IList<Author>> GetAll(Func<Author, bool> criteria)
+
+        private Author AuthorFactory(DbDataReader reader)
         {
-            throw new NotImplementedException();
+            return new Author
+            {
+                Id = reader["Id"].ToString(),
+                Name = reader["Name"].ToString(),
+                Biography = reader["Biography"].ToString(),
+                Email = reader["Email"].ToString(),
+                Photograph = reader["Photograph"].ToString()
+            };
         }
 
-        public Task<Author> GetById(string id)
+        public async Task<IList<Author>> GetAll()
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+            return db.Select<Author>("select * from Authors", AuthorFactory);
         }
 
-        public void Save()
+        public async Task<IList<Author>> GetAll(Func<Author, bool> criteria)
         {
-            throw new NotImplementedException();
+            var authors = await GetAll();
+            
+            return (from a in authors
+                    where criteria(a)
+                    select a).ToList();
         }
 
-        public Task<Author> Update(Author entity)
+        public async Task<Author> GetById(string id)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+
+            var author = db.FirstOrDefault($"select * from authors where id='{id}'",AuthorFactory);
+            if (author == null)
+                throw new InvalidEntityException($"Invalid Author Id: '{id}'");
+
+            return author;
+        }
+
+        public async Task Save()
+        {
+            await Task.CompletedTask;
+        }
+
+        public async Task<Author> Update(Author author)
+        {
+            db.ExecuteUpdate($"update Authors " +
+                                $"set name='{author.Name}'," +
+                                $"biography='{author.Biography}'," +
+                                $"photograph='{author.Photograph}'," +
+                                $"email='{author.Email}' " +
+                                $"where id='{author.Id}'");
+
+
+            return await GetById(author.Id);
         }
     }
 }

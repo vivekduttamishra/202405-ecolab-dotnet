@@ -33,5 +33,17 @@ namespace BooksWebV2.ApiControllers
            var result =await _authorService.AddAuthor(author);
             return Ok(result); //Ok means status 200
         }
+
+        [HttpPut("{id}")]
+        public async Task<Author> UpdateAuthor(string id, Author author)
+        {
+            return await _authorService.UpdateAuthor(author);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task DeleteAuthor(string id)
+        {
+            await _authorService.DeleteAuthor(id);
+        }
     }
 }

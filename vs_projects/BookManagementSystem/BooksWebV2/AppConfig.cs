@@ -1,4 +1,7 @@
 ﻿using ConceptArchitect.BookManagement;
+using ConceptArchitect.BookManagement.SqlRepository;
+using ConceptArchitect.Utils;
+using ConceptArchitect.Utils.Data;
 
 namespace BooksWebV2
 {
@@ -6,19 +9,37 @@ namespace BooksWebV2
     {
         public static void ConfigureServices(this IServiceCollection services)
         {
-            
+
             services.AddControllersWithViews();
-            services.AddSingleton<IAuthorService,InMemoryAuthorService>();
+
+            //services.DevelopementTimeServices();
+
+            services.AddTransient<IAuthorService,PersistentAuthorService>();
+            services.AddTransient<IRepository<Author, string>, SqlAuthorRepository>();
+            services.AddTransient<DbManager>(s =>
+            {
+                var config = s.GetService<IConfiguration>();
+                var connectionFactory = new DefaultConnectionFactory(config, "booksdb");
+                return new DbManager(connectionFactory.Factory);
+            });
+           
             services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
 
+
+        }
+
+        private static void DevelopementTimeServices(this IServiceCollection services)
+        {
+            services.AddSingleton<IAuthorService, InMemoryAuthorService>();
+            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
         }
 
         public static void ConfigureEnvironment(this WebApplication app, IWebHostEnvironment environment) 
         {
             if(environment.IsDevelopment())
             {
-                IAuthorDataSeeder seeder = app.Services.GetService<IAuthorDataSeeder>();
-                seeder.SeedData().Wait();
+                //IAuthorDataSeeder seeder = app.Services.GetService<IAuthorDataSeeder>();
+                //seeder.SeedData().Wait();
             }
         }
         public static void ConfigureMiddlewares(this WebApplication app)
@@ -31,6 +52,12 @@ namespace BooksWebV2
 
             app.UseRouting();
 
+            app.MapPost("/admin/seed/authors", async context =>
+            {
+                var seeder = context.RequestServices.GetService<IAuthorDataSeeder>();
+                await seeder.SeedData();
+                await context.Response.WriteAsync("Seeded Authors");
+            });
 
             app.MapControllerRoute(
                 name: "default",

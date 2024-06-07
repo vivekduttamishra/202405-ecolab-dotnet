@@ -3,7 +3,7 @@
 namespace ConceptArchitect.BookManagement
 {
     [Serializable]
-    internal class InvalidEntityException : Exception
+    public class InvalidEntityException : Exception
     {
         public InvalidEntityException()
         {

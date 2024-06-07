@@ -3,7 +3,7 @@
 namespace ConceptArchitect.BookManagement
 {
     [Serializable]
-    internal class DuplicateIdException : Exception
+    public class DuplicateIdException : Exception
     {
         public DuplicateIdException()
         {

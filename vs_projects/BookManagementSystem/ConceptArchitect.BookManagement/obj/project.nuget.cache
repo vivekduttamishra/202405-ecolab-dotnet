@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "wRXgw6+iMYrqtiMB0fjVzCcwe2hMjxbtgLQO46dGE38Q484FJlXDrVhfxu4mNWRGnCEu3pXh/8RhoeigliY+uw==",
+  "dgSpecHash": "p3mbyi4bwTAGou+aCDeYBc7Bmv7iCO5O2B5UKWIUsW7B1d4me3gldsso0k3dItGiTvU8DI0vtXMSnmQOgUmMQA==",
   "success": true,
   "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.1\\microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\vivek\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
