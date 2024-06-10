@@ -16,5 +16,9 @@ namespace ConceptArchitect.BookManagement
         public string Name { get; set; }
         public string Password { get; set; }
         public string? ProfilePicture { get; set; }
+
+        public IList<BookShelfItem> BookShelf { get; set; }
+
+        public IList<Review> Reviews { get; set; }
     }
 }

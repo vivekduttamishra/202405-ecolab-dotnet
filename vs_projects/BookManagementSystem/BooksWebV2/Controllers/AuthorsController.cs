@@ -38,17 +38,21 @@ namespace BooksWebV2.Controllers
 
         public ViewResult Add()
         {
-            return View();
+            return View(new Author()); //start view with empty author
         }
 
         [HttpPost]
         public async Task<ActionResult> Add(Author author)
         {
-
-            await authorService.AddAuthor(author);
-
-            //return View("info",author);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                await authorService.AddAuthor(author);
+                return RedirectToAction("Index");
+            }
+            else
+            { 
+                return View(author); //pass the current value to the form 
+            }
         }
 
         public async Task<ActionResult> Save(Author author)

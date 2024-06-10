@@ -21,10 +21,12 @@ namespace ConceptArchitect.BookManagement.EFRepository
             return await context.Authors.ToListAsync();
         }
 
-        public Task<Author> GetById(string id)
+        public async Task<Author> GetById(string id)
         {
             id = id.ToLower();
-            var author = context.Authors.FirstOrDefaultAsync(a => a.Id.ToLower() == id);
+
+            var author=await context.Authors.FirstOrDefaultAsync(a => a.Id.ToLower() == id); 
+            
             if (author == null)
                 throw new InvalidEntityException($"Invalid Author Id:'{id}'");
             return author;
@@ -46,24 +48,29 @@ namespace ConceptArchitect.BookManagement.EFRepository
             //await context.SaveChangesAsync();
         }
 
-
-
-
         public async Task Save()
         {
             await context.SaveChangesAsync();
         }
 
-        public async Task<Author> Update(Author entity)
+        public async Task<Author> Update(Author newData, Action<Author, Author> mergeOldNew)
         {
-            var currentAuthor = await GetById(entity.Id);
-            currentAuthor.Name = entity.Name;
-            currentAuthor.Email = entity.Email;
-            currentAuthor.Photograph = entity.Photograph;
-            currentAuthor.Biography = entity.Biography;
+            var existing = await GetById(newData.Id);
+            if (mergeOldNew != null)
+                mergeOldNew(existing, newData);
+            else
+                existing.Copy(newData, "Id");
 
             await context.SaveChangesAsync();
-            return currentAuthor;
+            return existing;
+        }
+
+        public async Task<Author> Update(Author newData, Func<Task<Author>> getOldData, Action<Author, Author> mergeOldNew)
+        {
+            var existing = await getOldData();
+            mergeOldNew(existing, newData);
+            await context.SaveChangesAsync();
+            return existing;
         }
     }
 

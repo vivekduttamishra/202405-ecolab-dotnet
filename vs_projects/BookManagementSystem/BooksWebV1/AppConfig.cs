@@ -12,7 +12,7 @@ namespace BooksWebV1
             });
 
             services.AddSingleton<IAuthorService,InMemoryAuthorService>();
-            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
+            services.AddTransient<IDataSeeder, DummyAuthorDataSeeder>();
 
         }
 
@@ -20,7 +20,7 @@ namespace BooksWebV1
         {
             if(environment.IsDevelopment())
             {
-                IAuthorDataSeeder seeder = app.Services.GetService<IAuthorDataSeeder>();
+                IDataSeeder seeder = app.Services.GetService<IDataSeeder>();
                 seeder.SeedData().Wait();
             }
         }

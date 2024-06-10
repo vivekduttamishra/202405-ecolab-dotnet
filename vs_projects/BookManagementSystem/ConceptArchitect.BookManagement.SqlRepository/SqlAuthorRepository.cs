@@ -93,5 +93,26 @@ namespace ConceptArchitect.BookManagement.SqlRepository
 
             return await GetById(author.Id);
         }
+
+        public async Task<Author> Update(Author newData, Action<Author, Author> mergeOldNew)
+        {
+            var existing = await GetById(newData.Id);
+            if (mergeOldNew == null)
+                existing.Copy(newData);
+            else
+                mergeOldNew(existing, newData);
+
+            await Update(existing);
+            return existing;
+            
+        }
+
+        public async Task<Author> Update(Author newData, Func<Task<Author>> getOldData, Action<Author, Author> mergeOldNew)
+        {
+            var existing = await getOldData();
+            mergeOldNew(existing, newData);
+            await Save();
+            return existing;
+        }
     }
 }

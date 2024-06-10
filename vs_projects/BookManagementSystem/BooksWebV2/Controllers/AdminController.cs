@@ -5,9 +5,9 @@ namespace BooksWebV2.Controllers
 {
     public class AdminController
     {
-        IAuthorDataSeeder seeder;
+        IDataSeeder seeder;
         IAuthorService authorService;
-        public AdminController(IAuthorDataSeeder seeder, IAuthorService authorService)
+        public AdminController(IDataSeeder seeder, IAuthorService authorService)
         {
             this.seeder = seeder;
             this.authorService = authorService;

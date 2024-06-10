@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace ConceptArchitect.BookManagement
 {
 
-    public interface IAuthorDataSeeder
+    public interface IDataSeeder
     {
         Task SeedData();
     }
 
 
-    public class DummyAuthorDataSeeder : IAuthorDataSeeder
+    public class DummyAuthorDataSeeder : IDataSeeder
     {
 
         IAuthorService authorService;

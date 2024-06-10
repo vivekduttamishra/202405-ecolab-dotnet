@@ -1,6 +1,7 @@
 ﻿using ConceptArchitect.BookManagement;
 using ConceptArchitect.BookManagement.EFRepository;
 using ConceptArchitect.BookManagement.SqlRepository;
+using ConceptArchitect.Web;
 using ConceptArchitect.Utils;
 using ConceptArchitect.Utils.Data;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ namespace BooksWebV2
             //services.DevelopementTimeServices();
 
             services.AddTransient<IAuthorService, PersistentAuthorService>();
-            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
+            services.AddTransient<IDataSeeder, DummyAuthorDataSeeder>();
 
 
             //services.AddSqlAuthorRepository();
@@ -50,7 +51,7 @@ namespace BooksWebV2
         private static void DevelopementTimeServices(this IServiceCollection services)
         {
             services.AddSingleton<IAuthorService, InMemoryAuthorService>();
-            services.AddTransient<IAuthorDataSeeder, DummyAuthorDataSeeder>();
+            services.AddTransient<IDataSeeder, DummyAuthorDataSeeder>();
         }
 
         public static void ConfigureEnvironment(this WebApplication app, IWebHostEnvironment environment) 
@@ -63,17 +64,22 @@ namespace BooksWebV2
         }
         public static void ConfigureMiddlewares(this WebApplication app)
         {
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            
+
+
+            //app.UseExceptionMapper<InvalidEntityException>(404, opt =>
+            //{
+            //    opt.IncludeExceptionDetailsInResponse = true;
+            //    //opt.ResponseBuilder = ExceptionResponseTypes.Html;
+            //});
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.MapPost("/admin/seed/authors", async context =>
             {
-                var seeder = context.RequestServices.GetService<IAuthorDataSeeder>();
+                var seeder = context.RequestServices.GetService<IDataSeeder>();
                 await seeder.SeedData();
                 await context.Response.WriteAsync("Seeded Authors");
             });

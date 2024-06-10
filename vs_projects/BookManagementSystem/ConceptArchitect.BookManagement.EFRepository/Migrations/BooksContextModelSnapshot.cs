@@ -29,9 +29,13 @@ namespace ConceptArchitect.BookManagement.EFRepository.Migrations
 
                     b.Property<string>("Biography")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeathDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -39,7 +43,8 @@ namespace ConceptArchitect.BookManagement.EFRepository.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Photograph")
                         .IsRequired()
@@ -59,13 +64,14 @@ namespace ConceptArchitect.BookManagement.EFRepository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CoverPage")
+                    b.Property<string>("CoverPhoto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("Price")
                         .IsRequired()
@@ -83,6 +89,107 @@ namespace ConceptArchitect.BookManagement.EFRepository.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.BookNote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BookId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("BookShelfItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("BookShelfItemId");
+
+                    b.HasIndex("UserEmail");
+
+                    b.ToTable("BookNotes");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.BookShelfItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BookId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserEmail");
+
+                    b.ToTable("BookShelfItems");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BookId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReviewDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReviewTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserEmail");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("ConceptArchitect.BookManagement.User", b =>
@@ -117,9 +224,79 @@ namespace ConceptArchitect.BookManagement.EFRepository.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("ConceptArchitect.BookManagement.BookNote", b =>
+                {
+                    b.HasOne("ConceptArchitect.BookManagement.Book", null)
+                        .WithMany("Notes")
+                        .HasForeignKey("BookId");
+
+                    b.HasOne("ConceptArchitect.BookManagement.BookShelfItem", null)
+                        .WithMany("Notes")
+                        .HasForeignKey("BookShelfItemId");
+
+                    b.HasOne("ConceptArchitect.BookManagement.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserEmail")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.BookShelfItem", b =>
+                {
+                    b.HasOne("ConceptArchitect.BookManagement.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ConceptArchitect.BookManagement.User", null)
+                        .WithMany("BookShelf")
+                        .HasForeignKey("UserEmail");
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.Review", b =>
+                {
+                    b.HasOne("ConceptArchitect.BookManagement.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookId");
+
+                    b.HasOne("ConceptArchitect.BookManagement.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserEmail")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ConceptArchitect.BookManagement.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.Book", b =>
+                {
+                    b.Navigation("Notes");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.BookShelfItem", b =>
+                {
+                    b.Navigation("Notes");
+                });
+
+            modelBuilder.Entity("ConceptArchitect.BookManagement.User", b =>
+                {
+                    b.Navigation("BookShelf");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

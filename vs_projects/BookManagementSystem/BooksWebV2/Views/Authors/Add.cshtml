@@ -1,27 +1,48 @@
-﻿
+﻿@using ConceptArchitect.BookManagement
+@model Author
 
 <h2>Add New Author</h2>
 
 <div>
     <form action="Add"  method="POST">
+
+        <div asp-validation-summary="All" class="text-danger">
+
+        </div>
+
         <div>
             <label class="form-label" for="Id">Id (optional)</label>
-            <input class="form-control" type="text" id="id" name="id" placeholder="Enter the id for author"/>
+            <input class="form-control" type="text" id="id" name="id" value="@Model.Id" placeholder="Enter the id for author"/>
         </div>
          <div>
             <label class="form-label"  for="Id">Name</label>
-            <input class="form-control" type="text" id="id" name="name" placeholder="Enter Author's Name'" />
+            <input class="form-control" type="text" id="name" name="name" value="@Model.Name" placeholder="Enter Author's Name'" />
         </div>
         <div>
             <label class="form-label" for="Id">Photograph</label>
-            <input class="form-control" type="text" id="id" name="photograph" placeholder="Enter Square Photo URL" />
+            <input class="form-control" type="text" id="photograph" name="photograph" value="@Model.Photograph" placeholder="Enter Square Photo URL" />
         </div>
         <div>
             <label class="form-label" for="Id">Biography</label>
-            <textarea class="form-control" type="text" id="id" name="biography" placeholder="Enter the id for author">
+            <textarea class="form-control" type="text" id="biography" name="biography" value="@Model.Biography" placeholder="Enter the id for author">
 
             </textarea>
         </div>
+
+        <div>
+            <label class="form-label" for="Id">Birth Date</label>
+            <textarea class="form-control" type="text" id="birthdate" name="birthdate" value="@Model.BirthDate" placeholder="Enter the id for author">
+
+            </textarea>
+        </div>
+
+        <div>
+            <label class="form-label" for="Id">Email</label>
+            <textarea class="form-control" type="text" id="email" name="email" value="@Model.Email" placeholder="Enter the id for author">
+
+            </textarea>
+        </div>
+
         <div class="submit">
             
             <input class="btn btn-primary form-control" type="submit" value="Add Author"/>
