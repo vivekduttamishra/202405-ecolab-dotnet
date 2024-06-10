@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Java Script</title>
+
+    <script>
+        document.write("Hello World, Document")
+        console.log('Hello World, Console');
+
+        var box = document.getElementById('box');
+        box.innerHTML = "Hello, World Java Script! We are Succesful!";
+
+    </script>
+
+    <style>
+        #box{
+            min-height: 100px !important;
+            border:1px solid gray;
+            min-width: 100px;
+            padding:20px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Java Script Demos</h1>
+    <div id="box">
+        If you see this message, we failed!
+    </div>
+
+    <button>Greet</button>
+</body>
+</html>
