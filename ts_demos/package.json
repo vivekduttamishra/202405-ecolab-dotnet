@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "where":"where tsc",
+    "version":"tsc --version" 
+  }
+
+}
