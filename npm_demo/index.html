@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fa-solid fa-book"></i>Welcome to Book's Web</h1>
+        <div class="nav">
+            <a href="/" class="btn btn-sm ">Home</a>
+            <a href="/books" class="btn btn-sm ">Books</a>
+            <a href="/authors" class="btn btn-sm ">Authors</a>
+        </div>
+    </div>
+    <hr/>
+    <div class="body">
+        <h2>Our Recommended Authors</h2>
+        <button onclick="getAuthors();" class="btn btn-secondary"><i class="fa-solid fa-arrows-rotate"></i>Get Authors</button>
+        <table class="table table-compact table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="authors">
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/@fortawesome/fontawesome/index.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
