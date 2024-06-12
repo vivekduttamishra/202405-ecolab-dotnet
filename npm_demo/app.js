@@ -19,7 +19,7 @@ class AuthorManager{
 function getAuthors(){
     var manager=new AuthorManager();
     var authors=manager.authors;
-    var authorsTable=$("#authors")
+    var authorsTable=$("#authors"); //document.getElementById("authors")
 
     authors.forEach(author=>{
         authorsTable.append(`
