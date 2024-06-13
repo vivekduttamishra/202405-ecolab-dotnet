@@ -1,0 +1,66 @@
+<h2>Book List</h2>
+
+<p>Here is our recommended list of {{books.length}} books</p>
+
+
+
+<button class="btn btn-primary" (click)="toggleImages()"  >
+    {{showImages?'Hide':'Show'}} Images
+</button>
+
+
+
+
+<table class="table table-condenced table-striped table-hover">
+    <thead>
+        <tr>
+            <th *ngIf="showImages" >
+                Cover
+                <div class="range">
+                    <button 
+                            [disabled]="imageHeight <=80" 
+                        
+                            (click)="updateHeight(-5)" 
+                            
+                            class="btn btn-sm btn-primary" 
+                    >-</button>
+                
+                    <span>{{imageHeight}}</span>
+                    <button (click)="updateHeight(5)"
+                            [disabled]="imageHeight>=160"
+                    class="btn btn-sm btn-primary">+</button>
+                </div>
+            </th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td *ngIf="showImages" >
+                <img [src]='book.cover' 
+                     [alt]='book.title' 
+                     title={{book.title}}
+
+                     [style.height.px]="imageHeight"
+                     />
+            </td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.rating}}</td>
+            <td>
+                <a class="btn btn-sm btn-primary" href="">Details</a>
+                
+                <a class="btn btn-sm btn-secondary" href="">Edit</a>
+                
+                <a class="btn btn-sm btn-danger" href="">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

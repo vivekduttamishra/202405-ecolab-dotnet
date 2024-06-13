@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
     styleUrls:['./app-header.component.css']
 })
 export class AppHeaderComponent{
-    title="World Wide Books";
-    slogan="The Official Home Page of all the books in the world";
+    @Input() title="";
+    @Input() slogan="The Official Home Page of all the books in the world";
     
 }

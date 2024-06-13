@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { BooksAppComponent } from './books-app.component';
+import { BooksAppComponent } from './app/books-app.component';
 
 
 bootstrapApplication(BooksAppComponent)

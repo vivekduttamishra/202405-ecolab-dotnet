@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
-import { Book } from "../../models/book.model";
 import { CommonModule } from "@angular/common";
+import { Book } from "../../models/book.model";
+import { CaRangeComponent } from "../../../utils/components/ca-range/ca-range.component";
 
 
 @Component({
@@ -9,7 +10,8 @@ import { CommonModule } from "@angular/common";
     templateUrl: './book-list.component.html',
     styleUrls:['./book-list.component.css'],
     imports:[
-        CommonModule
+        CommonModule,
+        CaRangeComponent
     ]
 })
 export class BookListComponent{
@@ -141,8 +143,20 @@ export class BookListComponent{
         
     }
     showImages=true;
+    imageHeight=120;
+    
     toggleImages(){
       this.showImages=!this.showImages;
     }
 
+    
+    // logChange(info:RangeInfo){
+    //   console.log("parent got",info);
+    //   }
+      
+
+  //   update(value:number){        
+  //     this.imageHeight=value;
+  // }
+    
 }
