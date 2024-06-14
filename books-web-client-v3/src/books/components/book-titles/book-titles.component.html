@@ -1,0 +1,12 @@
+
+<div class="books list-group">
+
+    @for(book of books; track book){
+        <div (click)="selected.emit(book)" 
+                class="list-group-item list-group-item-action">
+            {{ book.title }}
+        </div>
+    }
+</div>
+
+

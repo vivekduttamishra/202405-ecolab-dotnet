@@ -1,0 +1,12 @@
+
+<h2>Book Manage</h2>
+<div class="row">
+    <div class="col col-3 col-md-4 col-lg-2  left">
+        <button class="btn btn-primary form-control">Add A Book</button>
+        <book-titles [books]="books" (selected)="onSelect($event)" />
+    </div>
+    <div class="col col-9 col-md-8 col-lg-10  right">
+        
+        <book-info [selectedBook]="selectedBook" (delete)="onDelete()"/>
+    </div>
+</div>

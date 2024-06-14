@@ -1,0 +1,29 @@
+.selection_message{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+    height:100%;
+    font-style: italic;
+    font-weight: lighter;
+    color:lightgray;
+}
+
+.card{
+    max-height: 350px;
+    height:350px;
+    
+}
+
+img{
+   
+    
+    max-height: 350px;;
+    
+    
+}
+
+
+.description .card-body{
+    overflow:scroll !important;
+}
