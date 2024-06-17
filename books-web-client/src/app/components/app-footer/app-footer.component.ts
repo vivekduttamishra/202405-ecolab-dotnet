@@ -18,6 +18,7 @@ export interface RangeInfo{
 
     styles: [`
         footer {
+            margin-top:60px;
             position: fixed;
             left: 0;
             min-height: 50px;

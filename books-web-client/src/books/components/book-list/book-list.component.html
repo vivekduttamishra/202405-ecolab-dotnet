@@ -1,4 +1,4 @@
-<h2 ca-highlight foreground="blue" >Book List</h2>
+<h2 ca-highlight="transparent" >Book List</h2>
 
 <p>Here is our recommended list of {{books.length}} books</p>
 
@@ -43,9 +43,9 @@
                      />
             </td>
        
-            <td><span [ca-highlight]="{backgroundColor:'lightpink', size:20}">{{book.title}}</span></td>
+            <td><span [ca-highlight]="{backgroundColor:'', size:20}">{{book.title}}</span></td>
             <td>{{book.author}}</td>
-            <td ><span ca-highlight="" [highlight-size]="20" >{{book.price | currency:'INR' }}</span></td>
+            <td ><span ca-highlight="transparent" [highlight-size]="20" >{{book.price | currency:'INR' }}</span></td>
             <td>{{book.rating}}</td>
             <td>
                 <a class="btn btn-sm btn-primary" href="">Details</a>

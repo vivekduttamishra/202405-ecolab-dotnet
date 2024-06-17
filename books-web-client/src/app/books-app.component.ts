@@ -8,13 +8,19 @@ import { RouterOutlet } from "@angular/router";
     standalone: true, //no modules needed
     selector: 'books-app',
     template:`
-        <div class='app'>
+        <div class=''>
             <app-header title="World Wide Books"></app-header>
-            <router-outlet></router-outlet>
+            <div class='container'>
+                <router-outlet></router-outlet>
+            </div>
             <app-footer url='http://conceptarchitect.in' text="Concept Architect" ></app-footer>
         </div>
         `,
-
+    styles:[
+        `.container{
+            margin-bottom:60px;
+        }`
+    ],
     imports:[
         RouterOutlet,
         AppHeaderComponent,

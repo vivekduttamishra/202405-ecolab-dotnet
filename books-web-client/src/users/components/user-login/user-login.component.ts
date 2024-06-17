@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import {FormsModule } from '@angular/forms';
 import { JsonifyPipe } from '../../../utils/pipes/jsonify.pipe';
+import { SimpleUserService, User } from '../../services/simple-user.service';
+import { Router } from '@angular/router';
 
-export interface User{
-  name?:string;
-  email:string;
-  password:string;
-}
 
 @Component({
   selector: 'user-login',
@@ -19,6 +16,15 @@ export interface User{
   styleUrl: './user-login.component.css'
 })
 export class UserLoginComponent {
+
+  constructor(
+    private userService:SimpleUserService,
+    private router:Router,
+    
+  ){
+
+  }
+
   user:User = {
     email:'',
     password:''
@@ -39,8 +45,23 @@ export class UserLoginComponent {
 
   ];
   
+  errorMessage="";
+
   handleLogin(){
-    console.log(this.user)
+    //console.log('trying to loggin',this.user);
+    
+    
+    try{
+      this.errorMessage = "";
+      var result = this.userService.login(this.user);
+      console.log('success',result);
+      this.router.navigate(['/']);
+    }
+    catch(e:any){
+      //console.log('error',e.message);
+      
+      this.errorMessage=e.message;
+    }
   }
 
 }

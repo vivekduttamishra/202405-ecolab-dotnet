@@ -1,26 +1,69 @@
 <h2>User Login</h2>
-
+<h4 class="text-danger">{{errorMessage}}</h4>
 <div class="row">
     <div class="col">
-        <form>
+        <form #loginForm='ngForm' (submit)="handleLogin()">
 
             <label for="email" class="form-label">
                 Email
             </label>
-            <input class="form-control" type="text" [(ngModel)]='user.email' name="email" placeholder="email" />
+            <input class="form-control" type="text" placeholder="email" [class.invalid_control]="!emailControl.valid"
+                required email [(ngModel)]='user.email' name="email" #emailControl="ngModel" />
+
+            @if(!emailControl.valid){
+                <div class="text-danger">
+                    <div [hidden]="!emailControl.errors!['required']">
+                        Required
+                    </div>
+                    <div [hidden]="!emailControl.errors!['required']">
+                        Required
+                    </div>
+
+                    <div [hidden]="!emailControl.errors!['email']">
+                        Invalid Email Id
+                    </div>
+                </div>
+            }
+
+
 
             <label for="email" class="form-label">
                 Password
             </label>
-            <input class='form-control' type="password" name="password" [(ngModel)]='user.password'
-                placeholder="Password" />
 
-            <input (click)="handleLogin()" type="button" class="btn btn-primary form-control" value="Login" />
+
+
+            <input class='form-control' type="password" placeholder="Password"
+                [class.invalid_control]="!passwordControl.valid" required minlength="5" maxLength="10"
+                [(ngModel)]='user.password' name="password" #passwordControl="ngModel" />
+
+            @if(!passwordControl.valid){
+            <div class="text-danger">
+                <div [hidden]="!passwordControl.errors!['required']">
+                    Required
+                </div>
+
+                <div [hidden]="!passwordControl.errors!['minlength']">
+                    Password should be between 5-10 charecters
+                </div>
+            </div>
+            }
+
+
+
+
+            <input (click)="handleLogin()" [disabled]="!loginForm.valid" type="submit"
+                class="btn btn-primary form-control" value="Login" />
         </form>
+
+        <p>Login Form: {{loginForm.valid}}</p>
+        <p>Email Control: {{emailControl.errors|jsonify}}</p>
+        <p>Password Control: {{passwordControl.errors|jsonify}}</p>
+
+
     </div>
+
     <div class="col">
         <img [src]="loginImage" />
     </div>
 </div>
-
-

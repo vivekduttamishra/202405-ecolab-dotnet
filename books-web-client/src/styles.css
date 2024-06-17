@@ -10,3 +10,7 @@ h1{
 .btn-secondary{
     background-color: goldenrod;
 }
+
+.invalid_control{
+    background-color: lightcoral;
+}
