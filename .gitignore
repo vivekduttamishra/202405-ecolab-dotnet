@@ -1,3 +1,4 @@
 appsettings*.json
 debug/
 node_modules/
+private/

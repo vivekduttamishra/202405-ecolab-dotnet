@@ -16,3 +16,8 @@ img{
     box-shadow:-5px -5px 5px gray;
     border-radius:20px;
 }
+
+.left{
+    display:flex;
+    flex-direction: column;
+}

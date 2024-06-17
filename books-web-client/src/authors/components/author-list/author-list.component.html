@@ -1,1 +1,21 @@
-<p>author-list works!</p>
+@if(authors){
+
+    <h2>Our Recommended Authors</h2>
+
+    <div class="row">
+
+        @for(author of authors; track author){
+            <div class="card" style="width:300px;">
+                <img src="{{author.photograph}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{author.name}}</h5>
+                  <p class="card-text">{{author.biography}}</p>
+                </div>
+                <div class="card-footer">
+                    <a [routerLink]="['/authors',author.id]" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        }
+    </div>
+
+}

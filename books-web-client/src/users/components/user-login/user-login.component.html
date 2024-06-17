@@ -1,28 +1,26 @@
-
 <h2>User Login</h2>
 
-<form>
+<div class="row">
+    <div class="col">
+        <form>
 
-    <label for="email" class="form-label">
-        Email
-    </label>
-    <input class="form-control" type="text" 
-            [(ngModel)] = 'user.email'
-            name="email"
-            placeholder="email" />
+            <label for="email" class="form-label">
+                Email
+            </label>
+            <input class="form-control" type="text" [(ngModel)]='user.email' name="email" placeholder="email" />
 
-    <label for="email" class="form-label">
-        Password
-    </label>
-    <input class='form-control' 
-            type="password" 
-            name="password"
-            [(ngModel)] = 'user.password' 
-            placeholder="Password" />
+            <label for="email" class="form-label">
+                Password
+            </label>
+            <input class='form-control' type="password" name="password" [(ngModel)]='user.password'
+                placeholder="Password" />
 
-    <input (click)="handleLogin()" type="button" class="btn btn-primary form-control" value="Login" />
-</form>
-<hr/>
+            <input (click)="handleLogin()" type="button" class="btn btn-primary form-control" value="Login" />
+        </form>
+    </div>
+    <div class="col">
+        <img [src]="loginImage" />
+    </div>
+</div>
 
-<p>User:{{user.email}}</p>
-<p>Password:{{user.password}}</p>
+

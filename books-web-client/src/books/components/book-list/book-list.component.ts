@@ -4,6 +4,7 @@ import { Book } from "../../models/book.model";
 import { CaRangeComponent } from "../../../utils/components/ca-range/ca-range.component";
 import { RouterLink } from "@angular/router";
 import {  BookService } from "../../services/book-service.service";
+import { HighlightDirective } from "../../../utils/directives/highlight.directive";
 
 
 @Component({
@@ -14,7 +15,8 @@ import {  BookService } from "../../services/book-service.service";
     imports:[
         CommonModule,
         CaRangeComponent,
-        RouterLink
+        RouterLink,
+        HighlightDirective
     ]
 })
 export class BookListComponent implements OnInit{
