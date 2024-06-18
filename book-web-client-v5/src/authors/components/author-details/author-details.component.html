@@ -1,0 +1,28 @@
+@if(author){
+
+    <div class="content">
+        <h2>{{author.name}}</h2>
+        <div class='author-info'>
+            <div class='left'>
+                <img src={{author.photograph}} 
+                     alt={{author.name}} 
+                     title={{author.name}} />
+                
+                <button (click)="handleDelete()" 
+                class="btn btn-danger">Delete</button>
+            </div>
+            <div class='right'>
+                <h4>Birth Date</h4>
+                <p>{{author.birthDate| date:'EEEE, MMMM dd, yyyy'}}</p>
+
+                <p></p>
+                <hr/>
+                <h3>Biography</h3>
+                <p>{{author.biography}}</p>
+            </div>
+        </div>
+    </div>
+}
+@else{
+    <app-error-view title="Invalid Author Id: {{id}}" />
+}

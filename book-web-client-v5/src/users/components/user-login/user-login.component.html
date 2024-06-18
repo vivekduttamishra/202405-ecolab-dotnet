@@ -1,0 +1,82 @@
+<h2>User Login</h2>
+<h4 class="text-danger">{{errorMessage}}</h4>
+<div class="row">
+    <div class="col">
+        <form #loginForm='ngForm' (submit)="handleLogin()">
+
+            <div>
+                <label for="email" class="form-label">
+                    Email
+                </label>
+                <input class="form-control" type="text" placeholder="email" 
+                    [class.invalid]="emailControl.invalid && emailControl.dirty"
+                    [class.valid]="emailControl.valid && emailControl.dirty"
+                    required email
+                    [(ngModel)]='user.email' name="email" 
+                    #emailControl="ngModel" 
+                    
+                />
+    
+                @if(emailControl.invalid &&emailControl.dirty){
+                    <div class="text-danger">
+                        <div [hidden]="!emailControl.errors!['required']">
+                            Required
+                        </div>
+                        <div [hidden]="!emailControl.errors!['email']">
+                            Invalid Email Id
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+
+           <div>
+            <label for="email" class="form-label">
+                Password
+            </label>
+
+            <input class='form-control' type="password" placeholder="Password"
+                [class.invalid]="passwordControl.invalid &&passwordControl.dirty" 
+                [class.valid]="passwordControl.valid &&passwordControl.dirty" 
+
+                required [custom-password] ='{special_character_count:2}' 
+                [(ngModel)]='user.password' name="password" #passwordControl="ngModel" />
+
+            @if(passwordControl.invalid && passwordControl.dirty){
+            <div class="text-danger">
+                <div [hidden]="!passwordControl.errors!['required']">
+                    Required
+                </div>
+
+                <div [hidden]="!passwordControl.errors!['custom_password']">
+                    {{passwordControl.errors!['custom_password'].message}}
+                </div>
+            </div>
+            }
+           </div>
+
+
+
+
+            <input (click)="handleLogin()" [disabled]="!loginForm.valid" type="submit"
+                class="btn btn-primary form-control" value="Login" />
+        </form>
+
+        <p>Login Form: {{loginForm.valid}}</p>
+        <p>Email Control: 
+            <li>dirty: {{emailControl.dirty}}</li> 
+            <li>invalid:{{emailControl.invalid}}</li>
+            <li>touched:{{emailControl.touched}}</li>
+        </p>
+       
+       
+        <p>Password Control: {{passwordControl.errors|jsonify}}</p>
+
+
+    </div>
+
+    <div class="col">
+        <ca-slide-show base-path="/library/library0" [max-index]="4"/>
+    </div>
+</div>

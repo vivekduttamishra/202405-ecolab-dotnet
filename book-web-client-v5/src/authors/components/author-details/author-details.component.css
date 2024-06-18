@@ -1,0 +1,23 @@
+
+    
+.author-info{
+    display:flex;
+
+}
+.author-info .left{
+    padding-right: 10px;
+    border-right:1px solid gray;
+    margin-right:10px;
+}
+
+img{
+    border:10px solid black;
+    padding:5px;
+    box-shadow:-5px -5px 5px gray;
+    border-radius:20px;
+}
+
+.left{
+    display:flex;
+    flex-direction: column;
+}

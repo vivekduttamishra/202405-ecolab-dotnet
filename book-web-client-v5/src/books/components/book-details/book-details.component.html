@@ -1,0 +1,9 @@
+
+@if(selectedBook){
+
+    <book-info [selectedBook]="selectedBook" (delete)="onDelete();" />
+
+}
+@else {
+    <app-error-view  title="Invalid Book Id: {{id}}" message="We couldn't find the book in our database. We will try to get it soon!!!"/>
+}

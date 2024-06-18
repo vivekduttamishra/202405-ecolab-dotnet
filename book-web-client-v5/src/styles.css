@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+h1{
+    color:darkred;
+}
+
+.btn{
+    margin:5px;
+}
+
+.btn-secondary{
+    background-color: goldenrod;
+}
+
+
+.invalid{
+    border-left: 5px solid red;
+}
+
+.valid{
+    border-left: 5px solid green;
+}   
+

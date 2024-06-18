@@ -31,12 +31,7 @@ export class BookDetailsComponent implements OnInit {
     }
   ngOnInit(): void {
     this.id= this.route.snapshot.params["id"];
-    //this.selectedBook=this.service.getBookById(this.id!);
-    this.fetchBookDetails();
-  }
-
-  async fetchBookDetails(){
-    this.selectedBook= await this.service.getBookById(this.id!);
+    this.selectedBook=this.service.getBookById(this.id!);
   }
 
   onDelete(){

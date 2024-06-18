@@ -1,0 +1,95 @@
+<h2>User Registration</h2>
+
+<div class="row">
+    <div class="col">
+        <form (submit)="handleRegisteration()"  [formGroup]="registrationForm" >
+            <div class="form-element">
+                <label for="Name">
+                    Name
+                </label>
+                <input type="text" placeholder="Name" class="form-control" 
+                        formControlName="name"
+                        [class.invalid]="registrationForm.controls['name'].invalid && registrationForm.controls['name'].dirty"
+                        [class.valid]="registrationForm.controls['name'].valid && registrationForm.controls['name'].dirty"
+
+                        />
+                <div class="text-danger">
+    
+                </div>
+            </div>
+            <div class="form-element">
+                <label for="Email">
+                    Email
+                </label>
+                <input type="text" placeholder="someone@booksweb.com" class="form-control" formControlName="email"/>
+                <div class="text-danger">
+    
+                </div>
+            </div>
+            <div class="form-element">
+                <label for="Password">
+                    Password
+                </label>
+                <input type="password" placeholder="Password" class="form-control" 
+                        [class.invalid]="registrationForm.controls['password'].invalid && registrationForm.controls['password'].dirty"
+                        [class.valid]="registrationForm.controls['password'].valid && registrationForm.controls['password'].dirty"
+                        formControlName="password"/>
+
+                @if(registrationForm.controls['password'].dirty && registrationForm.controls['password'].invalid){
+
+                    <div class="text-danger">
+                        @if(registrationForm.controls['password'].errors!['strong_password']){
+                            {{registrationForm.controls['password'].errors!['strong_password'].message}}
+                        }                       
+    
+                    </div>
+                }
+            </div>
+            <div class="form-element">
+                <label for="Role">
+                    Role
+                </label>
+                <input type="text" placeholder="Admin, Moderator, User" class="form-control" formControlName="role"/>
+                <div class="text-danger">
+    
+                </div>
+            </div>
+            <div class="form-element">
+                <label for="Profile Photo">
+                    Profile Photo URL
+                </label>
+                <input type="text" placeholder="Name" class="form-control" formControlName="profilePicture"/>
+                <div class="text-danger">
+    
+                </div>
+            </div>
+    
+            <button type="submit" [disabled]="registrationForm.invalid" 
+                        class="form-control btn btn-primary">
+                Register
+            </button>
+    
+        </form>
+
+
+        @if(errors.length){
+            <div class="text-danger">
+                <ul>
+                    @for(error of errors; track error){
+                        <li>
+                            {{error}}
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+
+
+    </div>
+    <div class="col">
+        <ca-slide-show base-path="/library/library0" [max-index]="4"/>
+    </div>
+</div>
+
+
+ 

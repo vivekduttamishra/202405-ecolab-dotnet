@@ -5,7 +5,6 @@ import { CaRangeComponent } from "../../../utils/components/ca-range/ca-range.co
 import { RouterLink } from "@angular/router";
 import {  BookService } from "../../services/book-service.service";
 import { HighlightDirective } from "../../../utils/directives/highlight.directive";
-import { CaLoadingComponent } from "../../../utils/components/ca-loading/ca-loading.component";
 
 
 @Component({
@@ -17,33 +16,26 @@ import { CaLoadingComponent } from "../../../utils/components/ca-loading/ca-load
         CommonModule,
         CaRangeComponent,
         RouterLink,
-        CaLoadingComponent,
         HighlightDirective
     ]
 })
 export class BookListComponent implements OnInit{
     
+  books: Book[]=[];
+   
+    constructor(
+      private service: BookService
+
+    ){      
   
-  constructor(
-    private service: BookService
-    
-  ){      
-    
-  }
-  
-  books?: Book[];
+    }
+
 
   ngOnInit(): void {
 
-    this. fetchBooks();
+    this.books=this.service.getAllBooks();
     
   }
-
-  async fetchBooks(){
-    this.books=await this.service.getAllBooks();
-  }
-
-
     showImages=true;
     imageHeight=120;
     

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book.model';
-import { delay } from '../../utils/delay';
 
 @Injectable({
   providedIn: 'root'
@@ -133,31 +132,23 @@ export class BookService {
     ];
   }
 
-  async getAllBooks(){
-    await delay(2000);
+  getAllBooks(){
     return this._books;
   }
 
-  async getBookById(id: string){
-    await delay(2000);
+  getBookById(id: string){
     return this._books.find(book => book.id === id);
   }
 
-  async addBook(book:Book){
-    var existing=await this.getBookById(book.id);
-    if(existing)
-      throw new Error(`Book ${book.id} already exists`);
-
+  addBook(book:Book){
     return this._books.push(book);
   }
 
-  async removeBook(id:string){
-    await delay(2000);
+  removeBook(id:string){
     return this._books = this._books.filter(book => book.id!== id);
   }
 
-  async updateBook(book:Book){
-    await delay(2000);
+  updateBook(book:Book){
     let index = this._books.findIndex(b => b.id === book.id);
     this._books[index] = book;
     return this._books;
