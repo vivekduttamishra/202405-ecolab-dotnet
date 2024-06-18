@@ -11,6 +11,12 @@ h1{
     background-color: goldenrod;
 }
 
-.invalid_control{
-    background-color: lightcoral;
+
+.invalid{
+    border-left: 5px solid red;
 }
+
+.valid{
+    border-left: 5px solid green;
+}   
+
