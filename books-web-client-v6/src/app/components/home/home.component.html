@@ -1,7 +1,7 @@
 @if(books){
 
     <button class="btn btn-primary btn-danger"
-      (click)="subscription?.unsubscribe()"
+      (click)="susbcription?.unsubscribe()"
     
     >Stop</button>
 
@@ -18,27 +18,3 @@
         }
     </div>
 }
-
-<div>
-<hr/>
-<h2>More Books</h2>
-
-<button class="btn btn-primary btn-primary"
-      (click)="handleFetchBookClick()"
-      [disabled]='status==="active"'
-      [hidden]='status==="done"'
-      >Fetch</button> 
-
-@for(value of data; track value){
-  <h3>{{value}}</h3>
-}
-    
-@if(status==="active"){
-  <p>
-    <ca-loading [width]="100"/>
-  </p>
-}
-   
-
-
-</div>

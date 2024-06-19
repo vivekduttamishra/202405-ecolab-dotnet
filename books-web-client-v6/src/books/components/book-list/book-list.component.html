@@ -1,0 +1,68 @@
+<h2 ca-highlight="transparent" >Book List</h2>
+
+@if(books){
+
+    <p>Here is our recommended list of {{books.length}} books</p>
+    
+    
+    <button class="btn btn-primary" (click)="toggleImages()"  >
+        {{showImages?'Hide':'Show'}} Images
+    </button>
+    
+    
+    <table class="table table-condenced table-striped table-hover">
+        <thead>
+            <tr>
+                <th *ngIf="showImages" >
+                    Cover
+                    <ca-range 
+                            [min]='80'
+                            [max]="160"
+                            [delta]="10"
+    
+                            [(value)]="imageHeight"
+    
+    
+                            
+                            
+                    />
+                </th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books"  [routerLink]="['/books', book.id]">
+                <td *ngIf="showImages" >
+                    <img [src]='book.cover' 
+                         [alt]='book.title' 
+                         title={{book.title}}
+    
+                         [style.height.px]="imageHeight"
+                         />
+                </td>
+           
+                <td><span [ca-highlight]="{backgroundColor:'', size:20}">{{book.title}}</span></td>
+                <td>{{book.author}}</td>
+                <td ><span ca-highlight="transparent" [highlight-size]="20" >{{book.price | currency:'INR' }}</span></td>
+                <td>{{book.rating}}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="">Details</a>
+                    
+                    <a class="btn btn-sm btn-secondary" href="">Edit</a>
+                    
+                    <a class="btn btn-sm btn-danger" href="">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+@else {
+   <ca-loading/> 
+}
+
+
+

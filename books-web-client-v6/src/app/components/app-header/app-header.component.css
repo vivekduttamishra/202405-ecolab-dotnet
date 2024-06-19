@@ -1,0 +1,7 @@
+.header{
+    border-bottom: 2px solid gray;
+} 
+.header h3{
+    font-style: italic;
+    color:darkgray;
+} 

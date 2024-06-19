@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book.model';
 import { delay } from '../../utils/delay';
-import { Observable, Subscriber } from 'rxjs';
-import { SafeSubscriber } from 'rxjs/internal/Subscriber';
 
 export class Subscription<T>{
 
@@ -161,52 +159,22 @@ export class BookService {
     return this._books;
   }
 
+  getRecommendedBooks(count=5, delay=2000) {
 
-  getBookRecommendations(count=5, ms=2000){
-
-      var observable = new Observable((subscriber:Subscriber<Book>)=>{
-
-        const _fetch=async()=>{
-          for(var i=0;i<count;i++){
-            console.log('sending boook  to subscriber', this._books[i]);
-            subscriber.next(this._books[i]); //send this information to subscriber
-            await delay(ms);
-          }
-          subscriber.complete(); //we sent everything you needed.
-  
-        }
-        _fetch();
-
-      });
-
-      
-
-      return observable;
-
-  }
+    var subscription = new Subscription<Book[]>();
 
 
+    var iid= setInterval(async ()=>{
+      if(subscription._unsubscribed) {
+        clearInterval(iid);
+        return;
+      }
+      var books = await this._fetchRandomBooks(count);
+      subscription.update(books);
 
+    },delay);
 
-  getRecommendedBooks(count=5, ms=2000):Observable<Book[]> {
-
-    const _fetch=async(susbcriber:Subscriber<Book[]>)=>{
-
-       while(true){
-        var _books=await this._fetchRandomBooks(count);
-        susbcriber.next(_books);
-        await delay(ms);
-       }
-
-    }
-
-    return new Observable((subscriber)=>{
-
-      _fetch(subscriber);
-
-    });
-
-
+    return subscription
 
   }
   private async _fetchRandomBooks(count:number) {
