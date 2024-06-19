@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <title>Book's Web @RenderSection("title",false)</title>
+    <link href="/stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+    
+   
+    <div id="container">
+
+        <header>
+            <h1>Book's Web</h1>
+
+            <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/authors">Authors</a></li>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/home/about">About</a></li>
+                <li><a href="/user/login">Login</a></li>
+
+            </ul>
+        </header>
+
+        <div class="page_content">
+            @RenderBody()
+        </div>
+
+
+        <footer>
+            &copy; <a href="http://www.conceptarhcitect.in">Concept Architect</a>
+        </footer>
+
+    </div>
+
+
+</body>
+</html>
