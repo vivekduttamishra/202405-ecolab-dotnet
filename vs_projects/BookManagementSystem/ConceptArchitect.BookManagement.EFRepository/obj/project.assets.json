@@ -4879,11 +4879,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
+      "projectUniqueName": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
       "projectName": "ConceptArchitect.BookManagement.EFRepository",
-      "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
+      "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
       "packagesPath": "C:\\Users\\vivek\\.nuget\\packages\\",
-      "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\obj\\",
+      "outputPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vivek\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4900,11 +4900,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj": {
-              "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj"
+            "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj": {
+              "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement\\ConceptArchitect.BookManagement.csproj"
             },
-            "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj": {
-              "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj"
+            "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj": {
+              "projectPath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.Utils\\ConceptArchitect.Utils.csproj"
             }
           }
         }

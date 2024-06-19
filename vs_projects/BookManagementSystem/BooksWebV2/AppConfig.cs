@@ -94,6 +94,8 @@ namespace BooksWebV2
                 var connectionString = config["ConnectionStrings:books_ef"];
                 options.UseSqlServer(connectionString);
                 options.EnableSensitiveDataLogging();
+                options.UseLazyLoadingProxies();
+                
             });
         }
 

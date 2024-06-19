@@ -41,20 +41,25 @@ export class UserLoginComponent {
   errorMessage="";
 
   handleLogin(){
-    //console.log('trying to loggin',this.user);
     
-    
-    try{
-      this.errorMessage = "";
-      var result = this.userService.login(this.user);
-      console.log('success',result);
-      this.router.navigate(['/']);
-    }
-    catch(e:any){
-      //console.log('error',e.message);
-      
-      this.errorMessage=e.message;
-    }
+   
+    this
+      .userService
+      .login(this.user)
+      .subscribe({
+
+        next: result=>{
+          this.router.navigate(['/']);
+        },
+
+        error: error=>{
+          
+          if(error.status===401)
+            this.errorMessage="Invalid Credentials";
+          else
+            this.errorMessage=`Error: {error.status}`;
+        }
+      });
   }
 
 }

@@ -40,7 +40,7 @@
                 [class.invalid]="passwordControl.invalid &&passwordControl.dirty" 
                 [class.valid]="passwordControl.valid &&passwordControl.dirty" 
 
-                required [custom-password] ='{special_character_count:2}' 
+                required  
                 [(ngModel)]='user.password' name="password" #passwordControl="ngModel" />
 
             @if(passwordControl.invalid && passwordControl.dirty){

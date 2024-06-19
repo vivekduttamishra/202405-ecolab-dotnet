@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pOBbrScB9dQ32T836tLJf4o4mbKyEgkT4gLOl3oQgC+PUBGPO8y+hiOppvbiCHIyOVtggX3xH5KEDSUggKUOcw==",
+  "dgSpecHash": "U8jfikUZyAYcHk8Azcx/GWgxoBNj5ln4j83NeJ4/QC/BQ0/C8UNwW/3y9yhFy6KRnzYgLEJzMgRfWvUd2tNEPw==",
   "success": true,
-  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement.SqlRepository\\ConceptArchitect.BookManagement.SqlRepository.csproj",
+  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.SqlRepository\\ConceptArchitect.BookManagement.SqlRepository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\vivek\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",

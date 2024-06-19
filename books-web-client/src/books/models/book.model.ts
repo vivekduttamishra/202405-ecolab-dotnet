@@ -10,7 +10,7 @@ export interface Book{
     author:string;
     price:number;
     rating:number;
-    cover:string;
+    coverPhoto:string;
     description:string;   
     
     

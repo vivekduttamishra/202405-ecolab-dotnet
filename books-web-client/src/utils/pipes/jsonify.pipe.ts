@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class JsonifyPipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
-    console.log('value:', value);
+    //console.log('value:', value);
     return JSON.stringify(value);
   }
 

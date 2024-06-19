@@ -10,7 +10,7 @@ namespace ConceptArchitect.BookManagement
     public class BookShelfItem
     {
         public int Id { get; set; }
-        public Book Book { get; set; }
+        public virtual Book Book { get; set; }
 
         public ReadingStatus Status { get; set; }
 

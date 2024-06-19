@@ -194,7 +194,7 @@ namespace ConceptArchitect.BookManagement
             {
                 Title = "The Exchange",
                 Author = await authorService.GetAuthorById("john-grisham"),
-                Price = 47873,
+                Price = 473,
                 Rating = 3.9,
                 Votes = 89902,
                 CoverPhoto = "https://m.media-amazon.com/images/I/71WLkq4iTXL._SY522_.jpg",
@@ -205,7 +205,7 @@ namespace ConceptArchitect.BookManagement
             {
                 Title = "A Time to Kill",
                 Author = await authorService.GetAuthorById("john-grisham"),
-                Price = 32206,
+                Price = 326,
                 Rating = 4.3,
                 Votes = 89902,
                 CoverPhoto = "https://m.media-amazon.com/images/I/81e-b8aSHgL._SY522_.jpg",
@@ -216,7 +216,7 @@ namespace ConceptArchitect.BookManagement
             {
                 Title = "Camino Ghosts",
                 Author = await authorService.GetAuthorById("john-grisham"),
-                Price = 32206,
+                Price = 322,
                 Rating = 4.5,
                 Votes = 5200,
                 CoverPhoto = "https://m.media-amazon.com/images/I/81xLb8Ec8NL._SY522_.jpg",

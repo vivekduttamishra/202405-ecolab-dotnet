@@ -55,7 +55,7 @@ export class BookManageComponent {
           ],
           "series": "The Lost Epic",
           "seriesIndex": "1",
-          "cover": "https://m.media-amazon.com/images/I/41-KqB1-cqL._SY346_.jpg",
+          "coverPhoto": "https://m.media-amazon.com/images/I/41-KqB1-cqL._SY346_.jpg",
           "reviews": []
         },
         {
@@ -78,7 +78,7 @@ export class BookManageComponent {
           ],
           "series": "Harry Potter",
           "seriesIndex": "2",
-          "cover": "https://m.media-amazon.com/images/I/51UoqRAxwEL.jpg",
+          "coverPhoto": "https://m.media-amazon.com/images/I/51UoqRAxwEL.jpg",
           "price": 500,
           "reviews": []
         },
@@ -101,7 +101,7 @@ export class BookManageComponent {
           ],
           "series": "Hercule Poirot",
           "seriesIndex": "",
-          "cover": "https://m.media-amazon.com/images/I/41KkjEFUtVL.jpg",
+          "coverPhoto": "https://m.media-amazon.com/images/I/41KkjEFUtVL.jpg",
           "reviews": [],
           "price": 250
         },
@@ -126,7 +126,7 @@ export class BookManageComponent {
           ],
           "series": "Harry Potter",
           "seriesIndex": "6",
-          "cover": "https://cdn01.sapnaonline.com/product_media/9781408855706/md_9781408855706.jpg"
+          "coverPhoto": "https://cdn01.sapnaonline.com/product_media/9781408855706/md_9781408855706.jpg"
         },
         {
           "_id": {
@@ -149,7 +149,7 @@ export class BookManageComponent {
           ],
           "series": "Harry Potter",
           "seriesIndex": "5",
-          "cover": "https://m.media-amazon.com/images/I/51-SI2+aQ2L._SY346_.jpg",
+          "coverPhoto": "https://m.media-amazon.com/images/I/51-SI2+aQ2L._SY346_.jpg",
           "reviews": []
         }
       ];

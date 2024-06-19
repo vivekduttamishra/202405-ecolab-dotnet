@@ -1,4 +1,5 @@
 ﻿using ConceptArchitect.BookManagement;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksWebV2.Controllers
@@ -15,6 +16,7 @@ namespace BooksWebV2.Controllers
         }
 
         [HttpPost]
+        //[Authorize(Roles ="Root")]
         public async Task<ActionResult> SeedData()
         {
             await seeder.SeedData();

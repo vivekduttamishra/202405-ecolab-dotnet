@@ -6,6 +6,7 @@ import { RouterLink } from "@angular/router";
 import {  BookService } from "../../services/book-service.service";
 import { HighlightDirective } from "../../../utils/directives/highlight.directive";
 import { CaLoadingComponent } from "../../../utils/components/ca-loading/ca-loading.component";
+import { delay, take, tap } from "rxjs";
 
 
 @Component({
@@ -35,13 +36,18 @@ export class BookListComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this. fetchBooks();
+    this.service
+        .getAllBooks()
+        .pipe(
+          delay(1000),
+          tap(console.log)          
+        )
+        .subscribe({
+          next: books=>this.books = books
+        });
     
   }
 
-  async fetchBooks(){
-    this.books=await this.service.getAllBooks();
-  }
 
 
     showImages=true;

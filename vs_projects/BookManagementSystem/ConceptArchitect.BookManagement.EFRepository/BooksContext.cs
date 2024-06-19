@@ -22,5 +22,11 @@ namespace ConceptArchitect.BookManagement.EFRepository
         public DbSet<BookShelfItem> BookShelfItems { get; set;}
 
         public DbSet<BookNote> BookNotes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Laz
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

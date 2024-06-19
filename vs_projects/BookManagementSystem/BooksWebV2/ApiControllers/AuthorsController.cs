@@ -18,7 +18,7 @@ namespace BooksWebV2.ApiControllers
         }
 
         [HttpGet]  // /api/authors
-        [Authorize]
+        //[Authorize]
         public async Task<IList<Author>> GetAllAuthors()
         {
             return await _authorService.GetAuthors();

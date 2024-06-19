@@ -25,9 +25,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     
     ngOnInit(){
       this.subscription=this.bookService
-                            .getRecommendedBooks(3, 5000)
+                            .getRecommendedBooks(3, 2000)
+                            .pipe(
+                              tap((books: Book[]) => console.log(books.map(book=>book.title)))
+                            )
                             .subscribe({
-                              next: (books:Book[])=> {this.books = books;} 
+                              next: (books:Book[])=> {this.books = books;} ,
+                              complete: () => console.log('completed')
                             });
 
 

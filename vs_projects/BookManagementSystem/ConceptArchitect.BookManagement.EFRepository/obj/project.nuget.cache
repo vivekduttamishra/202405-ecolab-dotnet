@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IKFh5exzlFZEMxsCGyqgtGZOaLq880OuaCMTzM/RL6gM/1d9A3UiJpgrv1mH4T8jp4aESQTQcFyRknG55UB/Xw==",
+  "dgSpecHash": "RzGLLlxeH++frIS/yFXlxl0DVcxSf7Wg7jNF54HjIyUqesBKUe2KM8TjtkuoB2CUVrYpXR2JqsGwNbyNHdA71Q==",
   "success": true,
-  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\private\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
+  "projectFilePath": "D:\\works\\corporate\\202405-ecolab-dotnet\\vs_projects\\BookManagementSystem\\ConceptArchitect.BookManagement.EFRepository\\ConceptArchitect.BookManagement.EFRepository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vivek\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\vivek\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -37,7 +37,7 @@
         <tbody>
             <tr *ngFor="let book of books"  [routerLink]="['/books', book.id]">
                 <td *ngIf="showImages" >
-                    <img [src]='book.cover' 
+                    <img [src]='book.coverPhoto' 
                          [alt]='book.title' 
                          title={{book.title}}
     

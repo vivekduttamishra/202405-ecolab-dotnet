@@ -1,38 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book.model';
 import { delay } from '../../utils/delay';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, Subscriber, of } from 'rxjs';
 import { SafeSubscriber } from 'rxjs/internal/Subscriber';
+import { HttpClient } from '@angular/common/http';
 
-export class Subscription<T>{
-
-    susbcriber?:(args:T)=>void;
-    public _unsubscribed=false;
-
-    subscribe(subscriber: (args:T)=>void){
-      this.susbcriber = subscriber;
-    }
-
-    update(param:T){
-      if(this.susbcriber)
-        this.susbcriber(param);
-    }
-
-    unsubscribe(){
-      this._unsubscribed=true;;
-    }
-
-}
-
+//const url='http://localhost:4200/api/books.json';
+const url='http://localhost:5000/api/books';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  private _books: Book[];
-
-  constructor() {
+  
+  constructor(
+    private http: HttpClient
+  ) 
+  {
     this._books = [
       {
         "_id": {
@@ -56,7 +41,7 @@ export class BookService {
         ],
         "series": "The Lost Epic",
         "seriesIndex": "1",
-        "cover": "https://m.media-amazon.com/images/I/41-KqB1-cqL._SY346_.jpg",
+        "coverPhoto": "https://m.media-amazon.com/images/I/41-KqB1-cqL._SY346_.jpg",
         "reviews": []
       },
       {
@@ -79,7 +64,7 @@ export class BookService {
         ],
         "series": "Harry Potter",
         "seriesIndex": "2",
-        "cover": "https://m.media-amazon.com/images/I/51UoqRAxwEL.jpg",
+        "coverPhoto": "https://m.media-amazon.com/images/I/51UoqRAxwEL.jpg",
         "price": 500,
         "reviews": []
       },
@@ -102,7 +87,7 @@ export class BookService {
         ],
         "series": "Hercule Poirot",
         "seriesIndex": "",
-        "cover": "https://m.media-amazon.com/images/I/41KkjEFUtVL.jpg",
+        "coverPhoto": "https://m.media-amazon.com/images/I/41KkjEFUtVL.jpg",
         "reviews": [],
         "price": 250
       },
@@ -127,7 +112,7 @@ export class BookService {
         ],
         "series": "Harry Potter",
         "seriesIndex": "6",
-        "cover": "https://cdn01.sapnaonline.com/product_media/9781408855706/md_9781408855706.jpg"
+        "coverPhoto": "https://cdn01.sapnaonline.com/product_media/9781408855706/md_9781408855706.jpg"
       },
       {
         "_id": {
@@ -150,44 +135,23 @@ export class BookService {
         ],
         "series": "Harry Potter",
         "seriesIndex": "5",
-        "cover": "https://m.media-amazon.com/images/I/51-SI2+aQ2L._SY346_.jpg",
+        "coverPhoto": "https://m.media-amazon.com/images/I/51-SI2+aQ2L._SY346_.jpg",
         "reviews": []
       }
     ];
   }
 
-  async getAllBooks() {
-    await delay(2000);
-    return this._books;
+
+
+  getAllBooks() :Observable<Book[]>{
+    
+    return this.http.get<Book[]>(url);
+
   }
-
-
-  getBookRecommendations(count=5, ms=2000){
-
-      var observable = new Observable((subscriber:Subscriber<Book>)=>{
-
-        const _fetch=async()=>{
-          for(var i=0;i<count;i++){
-            console.log('sending boook  to subscriber', this._books[i]);
-            subscriber.next(this._books[i]); //send this information to subscriber
-            await delay(ms);
-          }
-          subscriber.complete(); //we sent everything you needed.
   
-        }
-        _fetch();
 
-      });
-
-      
-
-      return observable;
-
-  }
-
-
-
-
+  private _books: Book[];
+  
   getRecommendedBooks(count=5, ms=2000):Observable<Book[]> {
 
     const _fetch=async(susbcriber:Subscriber<Book[]>)=>{
@@ -256,6 +220,44 @@ export class BookService {
     this._books[index] = book;
     return this._books;
   }
+
+
+  async getAllBooks_v1() {
+    var response = await fetch(url);
+    var books = await response.json();
+    return books;
+  }
+
+
+
+
+
+  getBookRecommendations(count=5, ms=2000){
+
+      var observable = new Observable((subscriber:Subscriber<Book>)=>{
+
+        const _fetch=async()=>{
+          for(var i=0;i<count;i++){
+            console.log('sending boook  to subscriber', this._books[i]);
+            subscriber.next(this._books[i]); //send this information to subscriber
+            await delay(ms);
+          }
+          subscriber.complete(); //we sent everything you needed.
+  
+        }
+        _fetch();
+
+      });
+
+      
+
+      return observable;
+
+  }
+
+
+
+
 
 
 }

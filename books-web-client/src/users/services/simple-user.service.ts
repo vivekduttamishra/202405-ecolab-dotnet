@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 
 export interface User {
   name?: string;
@@ -16,8 +18,11 @@ export class SimpleUserService {
 
   private _users: any = {};
 
-
-  constructor() {
+  private _currentUser?: User;
+  constructor(
+    private http:HttpClient
+  ) 
+  {
 
     this._users['admin@books.org'] = {
       name: 'Admin',
@@ -51,16 +56,20 @@ export class SimpleUserService {
   }
 
   login(user:User){
-    if(this._users[user.email]){
-      if(this._users[user.email].password === user.password){
-        return {
-                ... this._users[user.email],  //copy all value from this object
-                password:null  //replace password. 
-              };
-      }    
-    }
+    
+    return this
+            .http
+            .post('http://localhost:5000/api/auth', user)
+            .pipe(
+              tap((data:any)=>{
+                if(data.token){
+                  localStorage.setItem('token',data.token);
+                  this._currentUser=data.user;
+                  console.log('login success',this._currentUser);
+                }
+              })
+            )
 
-    throw new Error("Invalid credentials");
   }
 
 
